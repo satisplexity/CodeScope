@@ -1,0 +1,11 @@
+﻿<Window x:Class="CodeScope.Presentation.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CodeScope.Presentation.Views.Windows"
+        Title="CodeScope"
+        Height="450"
+        Width="800">
+    <Grid>
+
+    </Grid>
+</Window>

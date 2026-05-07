@@ -1,6 +1,9 @@
 ﻿using System.Windows;
-using CodeScope.Application.Projects.Abstractions;
+
+using CodeScope.Presentation.Views.Windows;
 using CodeScope.Infrastructure.Persistence.Json;
+using CodeScope.Application.Projects.Abstractions;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeScope.Presentation
@@ -11,6 +14,8 @@ namespace CodeScope.Presentation
 
         protected override void OnStartup(StartupEventArgs startupArgs)
         {
+            ShowWindow();
+
             ServiceCollection services = new ServiceCollection();
 
             ConfigureServices(services);
@@ -18,6 +23,12 @@ namespace CodeScope.Presentation
             Services = services.BuildServiceProvider();
 
             base.OnStartup(startupArgs);
+        }
+
+        private void ShowWindow()
+        {
+            Window window = new MainWindow();
+            window.Show();
         }
 
         private void ConfigureServices(IServiceCollection services)

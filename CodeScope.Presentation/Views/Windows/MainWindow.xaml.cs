@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CodeScope.Presentation
+namespace CodeScope.Presentation.Views.Windows
 {
     public partial class MainWindow : Window
     {

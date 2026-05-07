@@ -5,6 +5,7 @@ using CodeScope.Infrastructure.Persistence.Json;
 using CodeScope.Application.Projects.Abstractions;
 
 using Microsoft.Extensions.DependencyInjection;
+using CodeScope.Presentation.ViewModels;
 
 namespace CodeScope.Presentation
 {
@@ -14,26 +15,32 @@ namespace CodeScope.Presentation
 
         protected override void OnStartup(StartupEventArgs startupArgs)
         {
-            ShowWindow();
+            base.OnStartup(startupArgs);
 
-            ServiceCollection services = new ServiceCollection();
+            ServiceCollection services = new();
 
             ConfigureServices(services);
 
             Services = services.BuildServiceProvider();
-
-            base.OnStartup(startupArgs);
+            
+            ShowWindow();
         }
 
         private void ShowWindow()
         {
-            Window window = new MainWindow();
+            MainWindow window = Services.GetRequiredService<MainWindow>();
+
             window.Show();
         }
 
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IProjectRepository, JsonProjectRepository>();
+            
+            services.AddSingleton<MainViewModel>();
+            services.AddSingleton<ProjectsViewModel>();
+
+            services.AddSingleton<MainWindow>();
         }
     }
 }

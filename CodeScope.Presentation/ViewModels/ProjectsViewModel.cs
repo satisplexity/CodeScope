@@ -2,9 +2,9 @@
 
 namespace CodeScope.Presentation.ViewModels
 {
-    public class ProjectViewModel : ViewModelBase
+    public class ProjectsViewModel : ViewModelBase
     {
-        public ProjectViewModel()
+        public ProjectsViewModel()
         {
 
         }

@@ -1,22 +1,21 @@
 ﻿using CodeScope.Presentation.ViewModels.Base;
-using CodeScope.Presentation.Views;
-using System.Windows.Controls;
 
 namespace CodeScope.Presentation.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private UserControl _currentView;
+        private ViewModelBase _currentViewModel;
 
-        public UserControl CurrentView
+        public ViewModelBase CurrentViewModel
         {
-            get => _currentView;
+            get => _currentViewModel;
 
-            private set => SetProperty(ref _currentView, value);        }
+            private set => SetProperty(ref _currentViewModel, value);
+        }
 
-        public MainViewModel()
+        public MainViewModel(ProjectsViewModel projectViewModel)
         {
-            CurrentView = new ProjectsView();
+            CurrentViewModel = projectViewModel;
         }
     }
 }

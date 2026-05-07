@@ -6,11 +6,9 @@
         Title="CodeScope"
         Height="450"
         Width="800">
-    <Window.DataContext>
-        <viewModels:MainViewModel/>
-    </Window.DataContext>
 
     <Grid>
-        <ContentPresenter Content="{Binding CurrentView}"/>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
+    
 </Window>

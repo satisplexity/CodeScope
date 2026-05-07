@@ -1,11 +1,16 @@
-﻿<Window x:Class="CodeScope.Presentation.Views.Windows.MainWindow"
+﻿<Window xaml:Class="CodeScope.Presentation.Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CodeScope.Presentation.Views.Windows"
+        xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels"
         Title="CodeScope"
         Height="450"
         Width="800">
-    <Grid>
+    <Window.DataContext>
+        <viewModels:MainViewModel/>
+    </Window.DataContext>
 
+    <Grid>
+        <ContentPresenter Content="{Binding CurrentView}"/>
     </Grid>
 </Window>

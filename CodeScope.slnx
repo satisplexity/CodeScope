@@ -2,4 +2,5 @@
   <Project Path="CodeScope.Application/CodeScope.Application.csproj" />
   <Project Path="CodeScope.Domain/CodeScope.Domain.csproj" />
   <Project Path="CodeScope.Infrastructure/CodeScope.Infrastructure.csproj" />
+  <Project Path="CodeScope.Presentation/CodeScope.Presentation.csproj" />
 </Solution>

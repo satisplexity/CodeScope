@@ -16,6 +16,11 @@ namespace CodeScope.Presentation.ViewModels
         public MainViewModel(ProjectsViewModel projectViewModel)
         {
             CurrentViewModel = projectViewModel;
+
+            _ = InitializeAsync(projectViewModel);
         }
+
+        private async Task InitializeAsync(ProjectsViewModel projectViewModel) =>
+            await projectViewModel.LoadAsync();
     }
 }

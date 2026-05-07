@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-using CodeScope.Presentation.Views.Windows;
+﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Infrastructure.Persistence.Json;
-using CodeScope.Application.Projects.Abstractions;
-
-using Microsoft.Extensions.DependencyInjection;
 using CodeScope.Presentation.ViewModels;
+using CodeScope.Presentation.Views.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 
 namespace CodeScope.Presentation
 {

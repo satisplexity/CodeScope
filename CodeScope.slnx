@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="CodeScope.Domain/CodeScope.Domain.csproj" />
+  <Project Path="CodeScope.Infrastructure/CodeScope.Infrastructure.csproj" />
 </Solution>

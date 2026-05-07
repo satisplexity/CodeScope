@@ -3,13 +3,49 @@
              xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CodeScope.Presentation.Views">
     <Grid Background="#222">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
         <Button Width="120"
                 Height="40"
                 Content="Create project"
                 Command="{Binding CreateProjectCommand}"
                 Background="#444"
                 Foreground="#CCC"/>
+
+        <ListBox ItemsSource="{Binding Projects}"
+                 Grid.Column="1">
+
+            <ListBox.ItemTemplate>
+                
+                <DataTemplate>
+
+                    <Border Margin="5"
+                            Padding="10"
+                            BorderThickness="1">
+
+                        <StackPanel>
+
+                            <TextBlock FontSize="16" 
+                                       FontWeight="Bold"
+                                       Foreground="#222"
+                                       Text="{Binding Name}"/>
+
+                            <TextBlock
+                                Margin="0,5,0,0"
+                                Foreground="#222"
+                                Text="{Binding RootPath}"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
 
     </Grid>
 </UserControl>

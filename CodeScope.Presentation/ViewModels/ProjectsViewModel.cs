@@ -15,13 +15,13 @@ namespace CodeScope.Presentation.ViewModels
 
         public ObservableCollection<Project> Projects { get; } = [];
 
-        public ICommand CreateProjecrtCommand { get; }
+        public ICommand CreateProjectCommand { get; }
 
         public ProjectsViewModel(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
 
-            CreateProjecrtCommand = new RelayCommand(CreateProject);
+            CreateProjectCommand = new RelayCommand(CreateProject);
         }
 
         public async Task LoadAsync()

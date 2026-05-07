@@ -4,11 +4,25 @@
         xmlns:local="clr-namespace:CodeScope.Presentation.Views.Windows"
         xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels"
         Title="CodeScope"
-        Height="450"
-        Width="800">
+        Height="900"
+        Width="1200">
 
     <Grid>
+        
         <ContentControl Content="{Binding CurrentViewModel}"/>
+
+        <Grid Visibility="{Binding IsOverlayOpen}"
+              Width="200"
+              HorizontalAlignment="Right">
+
+            <Border Background="#A111">
+
+                <ContentControl Content="{Binding OverlayViewModel}"/>
+
+            </Border>
+
+        </Grid>
+        
     </Grid>
     
 </Window>

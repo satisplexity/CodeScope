@@ -2,6 +2,8 @@
 {
     public abstract class ViewModelBase : ObservableObject
     {
+        public Action<ViewModelBase>? ShowOverlayAction { get; set; }
 
+        protected void ShowOverlay() => ShowOverlayAction.Invoke(this);
     }
 }

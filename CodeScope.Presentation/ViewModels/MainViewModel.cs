@@ -13,14 +13,29 @@ namespace CodeScope.Presentation.ViewModels
             private set => SetProperty(ref _currentViewModel, value);
         }
 
-        public MainViewModel(ProjectsViewModel projectViewModel)
-        {
-            CurrentViewModel = projectViewModel;
+        private ViewModelBase _overlayViewModel;
 
-            _ = InitializeAsync(projectViewModel);
+        public ViewModelBase OverlayViewModel
+        {
+            get => _overlayViewModel;
+
+            private set => SetProperty(ref _overlayViewModel, value);
+        }
+
+        public bool IsOverlayOpen => OverlayViewModel is not null;
+
+        public MainViewModel(ProjectsViewModel projectsViewModel)
+        {
+            projectsViewModel.ShowOverlayAction = OpenOverlay;
+
+            CurrentViewModel = projectsViewModel;
+
+            _ = InitializeAsync(projectsViewModel);
         }
 
         private async Task InitializeAsync(ProjectsViewModel projectViewModel) =>
             await projectViewModel.LoadAsync();
+
+        private void OpenOverlay(ViewModelBase viewModel) => OverlayViewModel = viewModel;
     }
 }

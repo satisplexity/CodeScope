@@ -55,6 +55,10 @@ namespace CodeScope.Presentation.ViewModels
 
         private async void CreateProject()
         {
+            Debug.WriteLine("CREATE PROJECT CLICKED");
+
+            ShowOverlay();
+
             Project project = new()
             {
                 Id = Guid.NewGuid(),

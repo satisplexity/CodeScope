@@ -4,7 +4,6 @@ using CodeScope.Domain.Projects;
 
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Windows.Input;
 using CodeScope.Presentation.Commands;
 
 namespace CodeScope.Presentation.ViewModels
@@ -15,13 +14,29 @@ namespace CodeScope.Presentation.ViewModels
 
         public ObservableCollection<Project> Projects { get; } = [];
 
-        public ICommand CreateProjectCommand { get; }
+        public RelayCommand CreateProjectCommand { get; }
+        public RelayCommand DeleteProjectCommand { get; }
+
+        private Project? _selectedProject;
+
+        public Project SelectedProject
+        {
+            get => _selectedProject;
+            set
+            {
+                if(SetProperty(ref _selectedProject, value))
+                {
+                    DeleteProjectCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
 
         public ProjectsViewModel(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
 
             CreateProjectCommand = new RelayCommand(CreateProject);
+            DeleteProjectCommand = new RelayCommand(DeleteProject, CanDeleteProject);
         }
 
         public async Task LoadAsync()
@@ -52,6 +67,21 @@ namespace CodeScope.Presentation.ViewModels
             await _projectRepository.SaveChangesAsync();
 
             Projects.Add(project);
+        }
+
+        private bool CanDeleteProject() => SelectedProject is not null;
+
+        private async void DeleteProject()
+        {
+            if(SelectedProject is null)
+            {
+                return;
+            }
+
+            await _projectRepository.DeleteAsync(SelectedProject.Id);
+            await _projectRepository.SaveChangesAsync();
+
+            Projects.Remove(SelectedProject);
         }
     }
 }

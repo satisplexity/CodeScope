@@ -12,15 +12,7 @@ namespace CodeScope.Presentation.ViewModels
         {
             get => _currentView;
 
-            private set
-            {
-                if (_currentView != value)
-                {
-                    _currentView = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+            private set => SetProperty(ref _currentView, value);        }
 
         public MainViewModel()
         {

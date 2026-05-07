@@ -3,5 +3,13 @@
              xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CodeScope.Presentation.Views">
     <Grid Background="#222">
+
+        <Button Width="120"
+                Height="40"
+                Content="Create project"
+                Command="{Binding CreateProjectCommand}"
+                Background="#444"
+                Foreground="#CCC"/>
+
     </Grid>
 </UserControl>

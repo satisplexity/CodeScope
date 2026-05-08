@@ -16,6 +16,9 @@
         <Setter Property="Padding"
                 Value="25, 15"/>
 
+        <Setter Property="FontFamily"
+                Value="{StaticResource Manrope}"/>
+
         <Setter Property="Template">
             <Setter.Value>
 

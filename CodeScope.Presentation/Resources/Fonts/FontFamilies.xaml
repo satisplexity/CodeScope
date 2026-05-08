@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily xaml:Key="Manrope">#Manrope</FontFamily>
+    
+</ResourceDictionary>

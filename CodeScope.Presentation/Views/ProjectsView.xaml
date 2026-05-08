@@ -2,30 +2,19 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CodeScope.Presentation.Views">
+    
     <Grid Background="#222">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            
-            <Button Style="{StaticResource RoundedButton}"
-                    Margin="20"
-                    Content="Create project"
-                    Command="{Binding CreateProjectCommand}"/>
-
-            <Button Style="{StaticResource RoundedButton}"
-                    Margin="20"
-                    Content="Delete project"
-                    Command="{Binding DeleteProjectCommand}"/>
-
-        </StackPanel>
-        
+        <TextBlock Style="{StaticResource PageHeader}"
+                   Text="Get started"/>
         
         <ListBox ItemsSource="{Binding Projects}"
-                 Grid.Column="1"
+                 Grid.Row="1"
                  SelectedItem="{Binding SelectedProject}">
 
             <ListBox.ItemTemplate>
@@ -56,6 +45,26 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
+        
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Grid.Row="2">
+            
+            <Button Style="{StaticResource RoundedButton}"
+                    Margin="20"
+                    Content="Create project"
+                    Command="{Binding CreateProjectCommand}"/>
+
+            <Button Style="{StaticResource RoundedButton}"
+                    Margin="20"
+                    Content="Delete project"
+                    Command="{Binding DeleteProjectCommand}"/>
+
+        </StackPanel>
+        
+        
+        
 
     </Grid>
 </UserControl>

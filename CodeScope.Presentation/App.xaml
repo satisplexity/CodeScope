@@ -15,6 +15,8 @@
                 <ResourceDictionary Source="/Resources/Icons/InterfaceIcons.xaml"/>
                 <ResourceDictionary Source="/Resources/Icons/ProjectsIcons.xaml"/>
 
+                <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

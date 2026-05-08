@@ -33,6 +33,7 @@ namespace CodeScope.Presentation.ViewModels
         public MainViewModel(ProjectsViewModel projectsViewModel)
         {
             projectsViewModel.ShowOverlayAction = OpenOverlay;
+            projectsViewModel.HideOverlayAction = HideOverlay;
 
             CurrentViewModel = projectsViewModel;
 
@@ -43,5 +44,7 @@ namespace CodeScope.Presentation.ViewModels
             await projectViewModel.LoadAsync();
 
         private void OpenOverlay(ViewModelBase viewModel) => OverlayViewModel = viewModel;
+
+        private void HideOverlay() => OverlayViewModel = null;
     }
 }

@@ -11,9 +11,13 @@
         
         <ContentControl Content="{Binding CurrentViewModel}"/>
 
-        <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
+              Background="#C111">
 
-            <Border Background="#A111">
+            <Border Background="#222"
+                    Margin="100"
+                    CornerRadius="20"
+                    Padding="10">
 
                 <ContentControl Content="{Binding OverlayViewModel}"/>
 

@@ -1,4 +1,6 @@
-﻿using CodeScope.Presentation.Commands;
+﻿using CodeScope.Application.Projects.Abstractions;
+using CodeScope.Domain.Projects;
+using CodeScope.Presentation.Commands;
 using CodeScope.Presentation.ViewModels.Base;
 using System.Diagnostics;
 
@@ -6,7 +8,12 @@ namespace CodeScope.Presentation.ViewModels
 {
     public class CreateProjectViewModel : ViewModelBase
     {
+        private readonly IProjectRepository _projectRepository;
+
+        public Action<Project>? ProjectCreatedAction { get; set; }
+
         public RelayCommand CreateProjectCommand { get; }
+        public RelayCommand HideCreateProjectCommand { get; }
 
         private string _projectName = string.Empty;
 
@@ -30,9 +37,12 @@ namespace CodeScope.Presentation.ViewModels
             set => SetProperty(ref _projectDescription, value);
         }
 
-        public CreateProjectViewModel()
+        public CreateProjectViewModel(IProjectRepository projectRepository)
         {
+            _projectRepository = projectRepository;
+            
             CreateProjectCommand = new RelayCommand(CreateProject, CanCreateProject);
+            HideCreateProjectCommand = new RelayCommand(HideOverlay);
         }
 
         private bool CanCreateProject()
@@ -41,10 +51,23 @@ namespace CodeScope.Presentation.ViewModels
             return !string.IsNullOrWhiteSpace(ProjectName);
         }
 
-        private void CreateProject()
+        private async void CreateProject()
         {
             Debug.WriteLine("CREATE PROJECT COMMAND");
-            //// PROJECT CREATION LOGIC
+            Project project = new()
+            {
+                Id = Guid.NewGuid(),
+                Name = ProjectName,
+                Description = ProjectDescription,
+                RootPath = @"P:\CodeScope",
+                CreatedAt = DateTime.Now
+            };
+
+            await _projectRepository.AddAsync(project);
+
+            await _projectRepository.SaveChangesAsync();
+
+            ProjectCreatedAction?.Invoke(project);
         }
     }
 }

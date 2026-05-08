@@ -57,20 +57,11 @@ namespace CodeScope.Presentation.ViewModels
         {
             Debug.WriteLine("CREATE PROJECT CLICKED");
 
-            ShowOverlay(new CreateProjectViewModel());
+            CreateProjectViewModel createProjectViewModel = new CreateProjectViewModel(_projectRepository);
+            createProjectViewModel.HideOverlayAction = this.HideOverlayAction;
+            createProjectViewModel.ProjectCreatedAction = OnProjectCreated;
 
-            Project project = new()
-            {
-                Id = Guid.NewGuid(),
-                Name = $"Test Project {DateTime.Now.Date}/{DateTime.Now.Microsecond}",
-                RootPath=@"P:\CodeScope",
-                CreatedAt = DateTime.Now
-            };
-
-            await _projectRepository.AddAsync(project);
-            await _projectRepository.SaveChangesAsync();
-
-            Projects.Add(project);
+            ShowOverlay(createProjectViewModel);
         }
 
         private bool CanDeleteProject() => SelectedProject is not null;
@@ -86,6 +77,13 @@ namespace CodeScope.Presentation.ViewModels
             await _projectRepository.SaveChangesAsync();
 
             Projects.Remove(SelectedProject);
+        }
+
+        private void OnProjectCreated(Project project)
+        {
+            Projects.Add(project);
+
+            HideOverlay();
         }
     }
 }

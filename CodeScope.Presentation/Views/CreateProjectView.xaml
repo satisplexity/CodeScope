@@ -16,7 +16,8 @@
                 FontSize="20"
                 Background="#333"
                 HorizontalAlignment="Left"
-                Margin="10"/>
+                Margin="10"
+                Command="{Binding HideCreateProjectCommand}"/>
 
         <StackPanel Grid.Row="1">
 

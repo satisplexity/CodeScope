@@ -4,6 +4,6 @@
     {
         public Action<ViewModelBase>? ShowOverlayAction { get; set; }
 
-        protected void ShowOverlay() => ShowOverlayAction.Invoke(this);
+        protected void ShowOverlay(ViewModelBase overlayContent) => ShowOverlayAction?.Invoke(overlayContent);
     }
 }

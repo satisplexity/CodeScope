@@ -6,8 +6,18 @@
              xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels">
     <Application.Resources>
 
+        <BooleanToVisibilityConverter xaml:Key="BooleanToVisibilityConverter"/>
+        
         <DataTemplate DataType="{xaml:Type viewModels:ProjectsViewModel}">
+            
             <views:ProjectsView/>
+            
+        </DataTemplate>
+
+        <DataTemplate DataType="{xaml:Type viewModels:CreateProjectViewModel}">
+            
+            <views:CreateProjectView/>
+            
         </DataTemplate>
         
     </Application.Resources>

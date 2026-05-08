@@ -19,7 +19,13 @@ namespace CodeScope.Presentation.ViewModels
         {
             get => _overlayViewModel;
 
-            private set => SetProperty(ref _overlayViewModel, value);
+            private set
+            {
+                if (SetProperty(ref _overlayViewModel, value))
+                {
+                    OnPropertyChanged(nameof(IsOverlayOpen));
+                }
+            }
         }
 
         public bool IsOverlayOpen => OverlayViewModel is not null;

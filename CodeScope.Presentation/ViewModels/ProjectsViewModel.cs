@@ -57,7 +57,7 @@ namespace CodeScope.Presentation.ViewModels
         {
             Debug.WriteLine("CREATE PROJECT CLICKED");
 
-            ShowOverlay();
+            ShowOverlay(new CreateProjectViewModel());
 
             Project project = new()
             {

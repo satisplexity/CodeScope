@@ -5,20 +5,18 @@
              xmlns:views="clr-namespace:CodeScope.Presentation.Views"
              xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels">
     <Application.Resources>
-
-        <BooleanToVisibilityConverter xaml:Key="BooleanToVisibilityConverter"/>
         
-        <DataTemplate DataType="{xaml:Type viewModels:ProjectsViewModel}">
-            
-            <views:ProjectsView/>
-            
-        </DataTemplate>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
 
-        <DataTemplate DataType="{xaml:Type viewModels:CreateProjectViewModel}">
-            
-            <views:CreateProjectView/>
-            
-        </DataTemplate>
-        
+                <ResourceDictionary Source="/Resources/Templates/ViewModelTemplates.xaml"/>
+                <ResourceDictionary Source="/Resources/Converters/Converters.xaml"/>
+
+                <ResourceDictionary Source="/Resources/Icons/InterfaceIcons.xaml"/>
+                <ResourceDictionary Source="/Resources/Icons/ProjectsIcons.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

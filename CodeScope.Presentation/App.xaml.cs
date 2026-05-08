@@ -3,6 +3,7 @@ using CodeScope.Infrastructure.Persistence.Json;
 using CodeScope.Presentation.ViewModels;
 using CodeScope.Presentation.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 using System.Windows;
 
 namespace CodeScope.Presentation
@@ -20,8 +21,10 @@ namespace CodeScope.Presentation
             ConfigureServices(services);
 
             Services = services.BuildServiceProvider();
-            
+
             ShowWindow();
+
+            CountLines();
         }
 
         private void ShowWindow()
@@ -40,6 +43,58 @@ namespace CodeScope.Presentation
             services.AddSingleton<CreateProjectViewModel>();
 
             services.AddSingleton<MainWindow>();
+        }
+
+        private void CountLines()
+        {
+            string projectPath = @"P:\CodeScope";
+
+            string[] ignoredDirectories =
+            [
+            "bin",
+"obj",
+".git",
+".vs"
+            ];
+
+            string[] allowedExtensions =
+            [
+            ".cs",
+".xaml"
+            ];
+
+            int totalLines = 0;
+
+            IEnumerable<string> files = Directory
+            .EnumerateFiles(
+            projectPath,
+            "*.*",
+            SearchOption.AllDirectories)
+            .Where(file =>
+            {
+                string extension = Path.GetExtension(file);
+
+                if (!allowedExtensions.Contains(extension))
+                {
+                    return false;
+                }
+
+                string path = file.ToLower();
+
+                return !ignoredDirectories.Any(dir =>
+    path.Contains($@"\{dir.ToLower()}\"));
+            });
+
+            foreach (string file in files)
+            {
+                int lineCount = File.ReadAllLines(file).Length;
+
+                totalLines += lineCount;
+
+                Console.WriteLine($"{lineCount} | {file}");
+            }
+
+            MessageBox.Show($"Total lines: {totalLines}");
         }
     }
 }

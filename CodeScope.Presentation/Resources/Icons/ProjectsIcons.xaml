@@ -33,16 +33,6 @@
 
     </Style>
 
-    <Style xaml:Key="Marker"
-           TargetType="{xaml:Type Path}"
-           BasedOn="{StaticResource IconBase}">
-
-        <Setter Property="Data"
-                Value="M12,.042a9.992,9.992,0,0,0-9.981,9.98c0,2.57,1.99,6.592,5.915,11.954a5.034,5.034,0,0,0,8.132,
-                0c3.925-5.362,5.915-9.384,5.915-11.954A9.992,9.992,0,0,0,12,.042ZM12,14a4,4,0,1,1,4-4A4,4,0,0,1,12,14Z"/>
-
-    </Style>
-
     <Style xaml:Key="Heart"
            TargetType="{xaml:Type Path}"
            BasedOn="{StaticResource IconBase}">
@@ -67,4 +57,33 @@
 
     </Style>
 
+    <Style xaml:Key="Marker"
+           TargetType="{xaml:Type Path}"
+           BasedOn="{StaticResource IconBase}">
+
+        <Setter Property="Data"
+                Value="M12,.042a9.992,9.992,0,0,0-9.981,9.98c0,2.57,1.99,6.592,5.915,11.954a5.034,5.034,0,0,0,8.132,
+                0c3.925-5.362,5.915-9.384,5.915-11.954A9.992,9.992,0,0,0,12,.042ZM12,14a4,4,0,1,1,4-4A4,4,0,0,1,12,14Z"/>
+
+    </Style>
+
+    <Style xaml:Key="Play"
+            TargetType="{xaml:Type Path}"
+            BasedOn="{StaticResource IconBase}">
+
+        <Setter Property="Data"
+                Value="M20.492,7.969,10.954.975A5,5,0,0,0,3,5.005V19a4.994,4.994,0,0,0,7.954,4.03l9.538-6.994a5,5,0,0,0,0-8.062Z"/>
+
+    </Style>
+
+    <Style xaml:Key="Star"
+           TargetType="{xaml:Type Path}"
+           BasedOn="{StaticResource IconBase}">
+
+        <Setter Property="Data"
+                Value="M1.327,12.4,4.887,15,3.535,19.187A3.178,3.178,0,0,0,4.719,22.8a3.177,3.177,0,0,0,3.8-.019L12,20.219l3.482,2.559a3.227,3.227,0,0,0,4.983-3.591L19.113,
+                15l3.56-2.6a3.227,3.227,0,0,0-1.9-5.832H16.4L15.073,2.432a3.227,3.227,0,0,0-6.146,0L7.6,6.568H3.231a3.227,3.227,0,0,0-1.9,5.832Z"/>
+
+    </Style>
+    
 </ResourceDictionary>

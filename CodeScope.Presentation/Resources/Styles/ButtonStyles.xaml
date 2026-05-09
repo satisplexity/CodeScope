@@ -7,14 +7,20 @@
         <Setter Property="Foreground"
                 Value="#CFCDCF"/>
 
-        <Setter Property="FontSize"
-                Value="20"/>
-
         <Setter Property="Background"
                 Value="#000000"/>
 
         <Setter Property="Padding"
-                Value="25, 15"/>
+                Value="20, 10"/>
+
+        <Setter Property="Margin"
+                Value="10"/>
+        
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+
+        <Setter Property="HorizontalAlignment"
+                Value="Center"/>
 
         <Setter Property="FontFamily"
                 Value="{StaticResource Manrope}"/>

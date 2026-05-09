@@ -26,5 +26,23 @@
                 Value="Bold"/>
 
     </Style>
+
+    <Style xaml:Key="ButtonText"
+           TargetType="{xaml:Type TextBlock}"
+           BasedOn="{StaticResource BaseTextBlock}">
+
+        <Setter Property="FontSize"
+                Value="22"/>
+
+        <Setter Property="FontWeight"
+                Value="Medium"/>
+
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+
+        <Setter Property="Margin"
+                Value="5"/>
+
+    </Style>
     
 </ResourceDictionary>

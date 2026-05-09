@@ -47,24 +47,53 @@
         </ListBox>
         
         <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Grid.Row="2">
+
+            <Button Style="{StaticResource RoundedButton}"
+                    Command="{Binding CreateProjectCommand}">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Path Style="{StaticResource InterfaceIcon_Plus}"/>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                               Text="Add project"/>
+
+                </StackPanel>
+                
+            </Button>
+
+            <Button Style="{StaticResource RoundedButton}"
+                    Command="{Binding DeleteProjectCommand}">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Path Style="{StaticResource InterfaceIcon_Trash}"/>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                               Text="Delete"/>
+
+                </StackPanel>
+                
+            </Button>
+
+            <!-- NOT BINDED BUTTON -->
+            <Button Style="{StaticResource RoundedButton}">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Path Style="{StaticResource InterfaceIcon_View}"/>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                               Text="Open"/>
+
+                </StackPanel>
+                
+            </Button>
             
-            <Button Style="{StaticResource RoundedButton}"
-                    Margin="20"
-                    Content="Create project"
-                    Command="{Binding CreateProjectCommand}"/>
-
-            <Button Style="{StaticResource RoundedButton}"
-                    Margin="20"
-                    Content="Delete project"
-                    Command="{Binding DeleteProjectCommand}"/>
-
         </StackPanel>
         
-        
-        
-
     </Grid>
 </UserControl>

@@ -41,6 +41,7 @@ namespace CodeScope.Presentation
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<ProjectsViewModel>();
             services.AddSingleton<CreateProjectViewModel>();
+            services.AddSingleton<ProjectOverviewViewModel>();
 
             services.AddSingleton<MainWindow>();
         }

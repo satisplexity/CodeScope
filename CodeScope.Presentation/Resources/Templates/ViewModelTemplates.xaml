@@ -15,4 +15,10 @@
 
     </DataTemplate>
 
+    <DataTemplate DataType="{xaml:Type viewModels:ProjectOverviewViewModel}">
+
+        <views:ProjectOverviewView/>
+
+    </DataTemplate>
+    
 </ResourceDictionary>

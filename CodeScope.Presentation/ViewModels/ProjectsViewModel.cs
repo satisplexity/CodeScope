@@ -14,8 +14,12 @@ namespace CodeScope.Presentation.ViewModels
 
         public ObservableCollection<Project> Projects { get; } = [];
 
+        public Action<Project>? OpenProjectAction;
+
         public RelayCommand CreateProjectCommand { get; }
         public RelayCommand DeleteProjectCommand { get; }
+
+        public RelayCommand OpenProjectCommand { get; }
 
         private Project? _selectedProject;
 
@@ -27,6 +31,7 @@ namespace CodeScope.Presentation.ViewModels
                 if(SetProperty(ref _selectedProject, value))
                 {
                     DeleteProjectCommand.RaiseCanExecuteChanged();
+                    OpenProjectCommand.RaiseCanExecuteChanged();
                 }
             }
         }
@@ -36,7 +41,8 @@ namespace CodeScope.Presentation.ViewModels
             _projectRepository = projectRepository;
 
             CreateProjectCommand = new RelayCommand(CreateProject);
-            DeleteProjectCommand = new RelayCommand(DeleteProject, CanDeleteProject);
+            DeleteProjectCommand = new RelayCommand(DeleteProject, CheckProjectSeletct);
+            OpenProjectCommand = new RelayCommand(OpenProject, CheckProjectSeletct);
         }
 
         public async Task LoadAsync()
@@ -64,7 +70,7 @@ namespace CodeScope.Presentation.ViewModels
             ShowOverlay(createProjectViewModel);
         }
 
-        private bool CanDeleteProject() => SelectedProject is not null;
+        private bool CheckProjectSeletct() => SelectedProject is not null;
 
         private async void DeleteProject()
         {
@@ -84,6 +90,16 @@ namespace CodeScope.Presentation.ViewModels
             Projects.Add(project);
 
             HideOverlay();
+        }
+
+        private void OpenProject()
+        {
+            if(SelectedProject is null)
+            {
+                return;
+            }
+
+            OpenProjectAction?.Invoke(SelectedProject);
         }
     }
 }

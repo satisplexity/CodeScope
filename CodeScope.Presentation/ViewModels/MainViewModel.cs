@@ -1,4 +1,5 @@
-﻿using CodeScope.Presentation.ViewModels.Base;
+﻿using CodeScope.Domain.Projects;
+using CodeScope.Presentation.ViewModels.Base;
 
 namespace CodeScope.Presentation.ViewModels
 {
@@ -10,7 +11,7 @@ namespace CodeScope.Presentation.ViewModels
         {
             get => _currentViewModel;
 
-            private set => SetProperty(ref _currentViewModel, value);
+             set => SetProperty(ref _currentViewModel, value);
         }
 
         private ViewModelBase _overlayViewModel;
@@ -32,8 +33,10 @@ namespace CodeScope.Presentation.ViewModels
 
         public MainViewModel(ProjectsViewModel projectsViewModel)
         {
+
             projectsViewModel.ShowOverlayAction = OpenOverlay;
             projectsViewModel.HideOverlayAction = HideOverlay;
+            projectsViewModel.OpenProjectAction = OpenProject;
 
             CurrentViewModel = projectsViewModel;
 
@@ -46,5 +49,10 @@ namespace CodeScope.Presentation.ViewModels
         private void OpenOverlay(ViewModelBase viewModel) => OverlayViewModel = viewModel;
 
         private void HideOverlay() => OverlayViewModel = null;
+
+        private void OpenProject(Project project)
+        {
+            CurrentViewModel = new ProjectOverviewViewModel(project);
+        }
     }
 }

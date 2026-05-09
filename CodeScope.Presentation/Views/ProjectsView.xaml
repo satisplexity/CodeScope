@@ -79,8 +79,8 @@
                 
             </Button>
 
-            <!-- NOT BINDED BUTTON -->
-            <Button Style="{StaticResource RoundedButton}">
+            <Button Style="{StaticResource RoundedButton}"
+                    Command="{Binding OpenProjectCommand}">
 
                 <StackPanel Orientation="Horizontal">
 

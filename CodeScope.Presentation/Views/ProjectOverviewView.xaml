@@ -13,8 +13,17 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Background="#212122">
+        <TextBlock Style="{StaticResource PageHeader}"
+                   Text="{Binding ProjectName}"
+                   Grid.ColumnSpan="2"/>
+
+        <StackPanel Background="#212122"
+                    Grid.Row="1">
 
             <RadioButton Content="Snapshots"
                          Foreground="White"
@@ -33,7 +42,8 @@
 
         </StackPanel>
 
-        <ContentControl Grid.Column="1"/>
+        <ContentControl Grid.Column="1"
+                        Grid.Row="1"/>
 
     </Grid>
 

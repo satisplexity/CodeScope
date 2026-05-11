@@ -26,35 +26,57 @@
                  Grid.Row="1"
                  SelectedItem="{Binding SelectedProject}"
                  Style="{StaticResource ProjectsListBox}"
-                 ItemContainerStyle="{StaticResource ProjectListBoxItem}">
-            <ListBox.ItemTemplate>
+                 ItemContainerStyle="{StaticResource ProjectListBoxItem}"
+                 ItemTemplate="{StaticResource ProjectCardTemplate}"/>
 
-                <DataTemplate>
+        <StackPanel VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Grid.Row="2">
 
-                    <Border Margin="5"
-                            Padding="10"
-                            BorderThickness="1">
+            <Button Style="{StaticResource RoundedButton}"
+            Command="{Binding CreateProjectCommand}">
 
-                        <StackPanel>
+                <StackPanel Orientation="Horizontal">
 
-                            <TextBlock FontSize="16" 
-                                       FontWeight="Bold"
-                               Foreground="#222"
-                               Text="{Binding Name}"/>
+                    <Path Style="{StaticResource InterfaceIcon_Plus}"/>
 
-                            <TextBlock
-                        Margin="0,5,0,0"
-                        Foreground="#222"
-                        Text="{Binding RootPath}"/>
+                    <TextBlock Style="{StaticResource ButtonText}"
+                       Text="Add project"/>
 
-                        </StackPanel>
+                </StackPanel>
 
-                    </Border>
+            </Button>
 
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+            <Button Style="{StaticResource RoundedButton}"
+            Command="{Binding DeleteProjectCommand}">
 
-        </ListBox>
+                <StackPanel Orientation="Horizontal">
+
+                    <Path Style="{StaticResource InterfaceIcon_Trash}"/>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                       Text="Delete"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Style="{StaticResource RoundedButton}"
+            Command="{Binding OpenProjectCommand}">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Path Style="{StaticResource InterfaceIcon_View}"/>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                       Text="Open"/>
+
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
 
     </Grid>
     

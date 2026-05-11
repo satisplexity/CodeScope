@@ -29,6 +29,8 @@ namespace CodeScope.Presentation.ViewModels
             }
         }
 
+        private ViewModelBase _lastViewModel = null;
+
         public bool IsOverlayOpen => OverlayViewModel is not null;
 
         public MainViewModel(StartViewModel startViewModel)
@@ -36,6 +38,8 @@ namespace CodeScope.Presentation.ViewModels
             startViewModel.ShowOverlayAction = OpenOverlay;
             startViewModel.HideOverlayAction = HideOverlay;
             startViewModel.OpenProjectAction = OpenProject;
+            startViewModel.SwitchViewAction = SwitchView;
+            startViewModel.GoToLastViewAction = GoToLastView;
 
             CurrentViewModel = startViewModel;
 
@@ -44,6 +48,20 @@ namespace CodeScope.Presentation.ViewModels
 
         private async Task InitializeAsync(StartViewModel startViewModel)
             => await startViewModel.LoadAsync();
+
+        private void SwitchView(ViewModelBase viewModel)
+        {
+            _lastViewModel = CurrentViewModel;
+            CurrentViewModel = viewModel;
+        }
+
+        private void GoToLastView()
+        {
+            if (_lastViewModel is not null)
+            {
+                SwitchView(_lastViewModel);
+            }
+        }
 
         private void OpenOverlay(ViewModelBase viewModel)
             => OverlayViewModel = viewModel;

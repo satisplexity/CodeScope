@@ -42,7 +42,7 @@ namespace CodeScope.Presentation.ViewModels
             _projectRepository = projectRepository;
             
             CreateProjectCommand = new RelayCommand(CreateProject, CanCreateProject);
-            HideCreateProjectCommand = new RelayCommand(HideOverlay);
+            HideCreateProjectCommand = new RelayCommand(GoToLastView);
         }
 
         private bool CanCreateProject()

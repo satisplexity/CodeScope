@@ -63,10 +63,11 @@ namespace CodeScope.Presentation.ViewModels
             CreateProjectViewModel createProjectViewModel = new CreateProjectViewModel(_projectRepository)
             {
                 HideOverlayAction = this.HideOverlayAction,
-                ProjectCreatedAction = OnProjectCreated
+                ProjectCreatedAction = OnProjectCreated,
+                GoToLastViewAction = this.GoToLastViewAction
             };
 
-            ShowOverlay(createProjectViewModel);
+            SwitchView(createProjectViewModel);
         }
 
         private bool CheckProjectSeletct() => SelectedProject is not null;

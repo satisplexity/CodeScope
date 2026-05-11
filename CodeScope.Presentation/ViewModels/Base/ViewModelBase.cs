@@ -9,5 +9,12 @@
         public Action? HideOverlayAction { get; set; }
 
         protected void HideOverlay() => HideOverlayAction?.Invoke();
+
+        public Action<ViewModelBase>? SwitchViewAction { get; set; }
+
+        protected void SwitchView(ViewModelBase viewModel) => SwitchViewAction?.Invoke(viewModel);
+
+        public Action? GoToLastViewAction { get; set; }
+        protected void GoToLastView() => GoToLastViewAction?.Invoke();
     }
 }

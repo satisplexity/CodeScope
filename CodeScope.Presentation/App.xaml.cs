@@ -24,7 +24,7 @@ namespace CodeScope.Presentation
 
             ShowWindow();
 
-            CountLines();
+            //CountLines();
         }
 
         private void ShowWindow()

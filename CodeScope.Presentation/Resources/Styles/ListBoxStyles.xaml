@@ -9,11 +9,7 @@
 
                 <ControlTemplate TargetType="{xaml:Type ListBox}">
 
-                    <Border CornerRadius="20"
-                            Background="#222"
-                            Margin="5"
-                            BorderBrush="#252525"
-                            BorderThickness="2">
+                    <Border Margin="5">
 
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
 

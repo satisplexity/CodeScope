@@ -6,7 +6,9 @@
     <Grid Style="{StaticResource AnimatedPageStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -22,8 +24,11 @@
 
         </Grid>
 
+        <Border Style="{StaticResource HorizontalRule}"
+                Grid.Row="1"/>
+
         <ListBox ItemsSource="{Binding Projects}"
-                 Grid.Row="1"
+                 Grid.Row="2"
                  SelectedItem="{Binding SelectedProject}"
                  Style="{StaticResource ProjectsListBox}"
                  ItemContainerStyle="{StaticResource ProjectListBoxItem}"
@@ -35,10 +40,13 @@
             </ListBox.ItemsPanel>
         </ListBox>
 
+        <Border Style="{StaticResource HorizontalRule}"
+                Grid.Row="3"/>
+
         <StackPanel VerticalAlignment="Center"
             HorizontalAlignment="Right"
             Orientation="Horizontal"
-            Grid.Row="2">
+            Grid.Row="4">
 
             <Button Style="{StaticResource RoundedButton}"
             Command="{Binding CreateProjectCommand}">

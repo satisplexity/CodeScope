@@ -89,7 +89,7 @@ namespace CodeScope.Presentation.ViewModels
         {
             Projects.Add(project);
 
-            HideOverlay();
+            OpenProjectAction?.Invoke(project);
         }
 
         private void OpenProject()

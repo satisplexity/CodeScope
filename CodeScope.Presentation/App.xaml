@@ -23,6 +23,7 @@
                 <ResourceDictionary Source="/Resources/Styles/GridStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/WindowStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/BorderStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxStyles.xaml"/>
 
                 <ResourceDictionary Source="/Resources/Templates/ViewModelTemplates.xaml"/>
                 <ResourceDictionary Source="/Resources/Templates/CardTemplates.xaml"/>

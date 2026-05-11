@@ -10,35 +10,52 @@
         </Grid.RowDefinitions>
 
         <Button Style="{StaticResource RoundedButton}"
-                Content="✖"
-                Foreground="White"
-                FontSize="10"
-                Padding="10"
-                HorizontalAlignment="Left"
                 Margin="10"
-                Command="{Binding HideCreateProjectCommand}"/>
+                Command="{Binding HideCreateProjectCommand}"
+                HorizontalAlignment="Left">
+
+            <StackPanel>
+
+                <TextBlock Style="{StaticResource ButtonText}"
+                           Text="Go back"/>
+
+            </StackPanel>
+            
+        </Button>
 
         <StackPanel Grid.Row="1">
 
             <TextBlock Text="Name"
                        Foreground="White"
-                       Margin="10"/>
+                       Style="{StaticResource CardHeader}"
+                       Margin="10, 0, 0, -5"/>
 
             <TextBox Text="{Binding ProjectName}"
+                     Style="{StaticResource ModernTextBox}"
                      Margin="10"/>
 
             <TextBlock Text="Description"
+                       Style="{StaticResource CardHeader}"
                        Foreground="White"
-                       Margin="10"/>
+                       Margin="10, 0, 0, -5"/>
 
             <TextBox Text="{Binding ProjectDescription}"
+                     Style="{StaticResource ModernTextBox}"
                      Margin="10"/>
 
             <Button Style="{StaticResource RoundedButton}"
-                    Content="Create project"
-                    Foreground="White"
                     Margin="10"
-                    Command="{Binding CreateProjectCommand}"/>
+                    Command="{Binding CreateProjectCommand}"
+                    HorizontalAlignment="Right">
+
+                <StackPanel>
+
+                    <TextBlock Style="{StaticResource ButtonText}"
+                               Text="Create project"/>
+
+                </StackPanel>
+                
+            </Button>
 
         </StackPanel>
         

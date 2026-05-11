@@ -20,5 +20,11 @@
         <views:ProjectOverviewView/>
 
     </DataTemplate>
+
+    <DataTemplate DataType="{xaml:Type viewModels:SnapshotsViewModel}">
+
+        <views:SnapshotsView/>
+
+    </DataTemplate>
     
 </ResourceDictionary>

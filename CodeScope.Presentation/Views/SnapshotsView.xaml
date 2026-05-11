@@ -12,9 +12,33 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
+        <ListBox ItemsSource="{Binding Snapshots}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <Border Padding="10"
+                    Margin="0 0 0 10">
+
+                        <StackPanel>
+
+                            <TextBlock Text="{Binding Name}" />
+
+                            <TextBlock Text="{Binding CreatedAt}" />
+
+                            <TextBlock Text="{Binding TotalLines}" />
+
+                        </StackPanel>
+
+                    </Border>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <StackPanel Grid.Row="1">
             <Button Style="{StaticResource RoundedButton}"
-                    Content="Create snapshot"/>
+                    Content="Create snapshot"
+                    Command="{Binding CreateSnapshotCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

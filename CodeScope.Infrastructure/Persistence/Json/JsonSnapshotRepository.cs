@@ -10,7 +10,9 @@ namespace CodeScope.Infrastructure.Persistence.Json
 
         public JsonSnapshotRepository()
         {
-            string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CodeScope");
+            string appDataPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "CodeScope");
 
             Directory.CreateDirectory(appDataPath);
 
@@ -21,29 +23,40 @@ namespace CodeScope.Infrastructure.Persistence.Json
 
         public async Task<List<ProjectSnapshot>> GetByProjectIdAsync(Guid projectId)
         {
-            string path = GetProjectSnapshotsPath(projectId);
+            string path = GetSnapshotFilePath(projectId);
 
             if (!File.Exists(path))
                 return new List<ProjectSnapshot>();
 
             string json = await File.ReadAllTextAsync(path);
 
-            return JsonSerializer.Deserialize<List<ProjectSnapshot>>(json) ?? new List<ProjectSnapshot>();
+            return JsonSerializer.Deserialize<List<ProjectSnapshot>>(json)
+                   ?? new List<ProjectSnapshot>();
         }
 
         public async Task SaveAsync(ProjectSnapshot snapshot)
         {
-            List<ProjectSnapshot> snapshots = await GetByProjectIdAsync(snapshot.ProjectId);
+            var snapshots = await GetByProjectIdAsync(snapshot.ProjectId);
 
             snapshots.Add(snapshot);
 
-            string json = JsonSerializer.Serialize(snapshots, new JsonSerializerOptions { WriteIndented = true });
+            string json = JsonSerializer.Serialize(
+                snapshots,
+                new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
 
-            var path = GetProjectSnapshotsPath(snapshot.ProjectId);
+            string path = GetSnapshotFilePath(snapshot.ProjectId);
 
             await File.WriteAllTextAsync(path, json);
         }
 
-        private string GetProjectSnapshotsPath(Guid projectId) => Path.Combine(_snapshotsDirectory, $"{projectId}.json");
+        private string GetSnapshotFilePath(Guid projectId)
+        {
+            return Path.Combine(
+                _snapshotsDirectory,
+                $"{projectId}.json");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CodeScope.Domain.Projects;
+using CodeScope.Infrastructure.Persistence.Json;
 using CodeScope.Presentation.ViewModels.Base;
 
 namespace CodeScope.Presentation.ViewModels
@@ -12,9 +13,21 @@ namespace CodeScope.Presentation.ViewModels
             get => CurrentProject.Name;
         }
 
+        private ViewModelBase _currentView;
+
+        public ViewModelBase CurrentView
+        {
+            get => _currentView;
+            set => SetProperty(ref _currentView, value);
+        }
+
         public ProjectOverviewViewModel(Project project)
         {
             CurrentProject = project;
+
+            SnapshotsViewModel snapshotsViewModel = new SnapshotsViewModel(new JsonSnapshotRepository(), project);
+
+            CurrentView = snapshotsViewModel;
         }
     }
 }

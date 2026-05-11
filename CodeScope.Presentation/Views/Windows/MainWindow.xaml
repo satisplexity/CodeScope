@@ -3,30 +3,71 @@
         xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CodeScope.Presentation.Views.Windows"
         xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels"
-        Title="CodeScope"
-        Height="900"
-        Width="1200">
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource RoundedWindow}">
 
-    <Grid Background="#222">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <ContentControl Content="{Binding CurrentViewModel}">
-           
-        </ContentControl>
+        <Border MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"
+                Background="#1B1B1C"
+                CornerRadius="20, 20, 0, 0">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-        <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
+                <TextBlock Style="{StaticResource ButtonText}"
+                           Text="CodeScope"/>
+                
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    
+                    <Button Style="{StaticResource RoundedButton}"
+                            Content="_"
+                            Click="MinimizeButton_Click"/>
+
+                    <Button Style="{StaticResource RoundedButton}"
+                            Content="☐"
+                            Click="MaximizeButton_Click"/>
+                    
+                    <Button Style="{StaticResource RoundedButton}"
+                            Content="✕"
+                            Click="CloseButton_Click"/>
+
+            </StackPanel>
+
+        </Grid>
+        </Border>
+        
+        
+        
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding CurrentViewModel}">
+
+            </ContentControl>
+
+            <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
               Background="#C111">
 
-            <Border Background="#222"
+                <Border Background="#222"
                     Margin="100"
                     CornerRadius="20"
                     Padding="10">
 
-                <ContentControl Content="{Binding OverlayViewModel}"/>
+                    <ContentControl Content="{Binding OverlayViewModel}"/>
 
-            </Border>
+                </Border>
 
+            </Grid>
         </Grid>
-        
+
     </Grid>
-    
+
 </Window>

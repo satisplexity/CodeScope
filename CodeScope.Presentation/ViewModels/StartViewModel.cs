@@ -1,14 +1,13 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
-using CodeScope.Presentation.ViewModels.Base;
 using CodeScope.Domain.Projects;
-
+using CodeScope.Presentation.Commands;
+using CodeScope.Presentation.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using CodeScope.Presentation.Commands;
 
 namespace CodeScope.Presentation.ViewModels
 {
-    public class ProjectsViewModel : ViewModelBase
+    public class StartViewModel : ViewModelBase
     {
         private readonly IProjectRepository _projectRepository;
 
@@ -28,7 +27,7 @@ namespace CodeScope.Presentation.ViewModels
             get => _selectedProject;
             set
             {
-                if(SetProperty(ref _selectedProject, value))
+                if (SetProperty(ref _selectedProject, value))
                 {
                     DeleteProjectCommand.RaiseCanExecuteChanged();
                     OpenProjectCommand.RaiseCanExecuteChanged();
@@ -36,7 +35,7 @@ namespace CodeScope.Presentation.ViewModels
             }
         }
 
-        public ProjectsViewModel(IProjectRepository projectRepository)
+        public StartViewModel(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
 
@@ -51,7 +50,7 @@ namespace CodeScope.Presentation.ViewModels
 
             Projects.Clear();
 
-            foreach(Project project in projects)
+            foreach (Project project in projects)
             {
                 Projects.Add(project);
             }
@@ -61,11 +60,11 @@ namespace CodeScope.Presentation.ViewModels
 
         private async void CreateProject()
         {
-            Debug.WriteLine("CREATE PROJECT CLICKED");
-
-            CreateProjectViewModel createProjectViewModel = new CreateProjectViewModel(_projectRepository);
-            createProjectViewModel.HideOverlayAction = this.HideOverlayAction;
-            createProjectViewModel.ProjectCreatedAction = OnProjectCreated;
+            CreateProjectViewModel createProjectViewModel = new CreateProjectViewModel(_projectRepository)
+            {
+                HideOverlayAction = this.HideOverlayAction,
+                ProjectCreatedAction = OnProjectCreated
+            };
 
             ShowOverlay(createProjectViewModel);
         }
@@ -74,7 +73,7 @@ namespace CodeScope.Presentation.ViewModels
 
         private async void DeleteProject()
         {
-            if(SelectedProject is null)
+            if (SelectedProject is null)
             {
                 return;
             }
@@ -94,7 +93,7 @@ namespace CodeScope.Presentation.ViewModels
 
         private void OpenProject()
         {
-            if(SelectedProject is null)
+            if (SelectedProject is null)
             {
                 return;
             }

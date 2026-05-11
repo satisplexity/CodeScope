@@ -27,7 +27,13 @@
                  SelectedItem="{Binding SelectedProject}"
                  Style="{StaticResource ProjectsListBox}"
                  ItemContainerStyle="{StaticResource ProjectListBoxItem}"
-                 ItemTemplate="{StaticResource ProjectCardTemplate}"/>
+                 ItemTemplate="{StaticResource ProjectCardTemplate}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
 
         <StackPanel VerticalAlignment="Center"
             HorizontalAlignment="Right"

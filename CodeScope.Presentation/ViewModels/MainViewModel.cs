@@ -31,28 +31,27 @@ namespace CodeScope.Presentation.ViewModels
 
         public bool IsOverlayOpen => OverlayViewModel is not null;
 
-        public MainViewModel(ProjectsViewModel projectsViewModel)
+        public MainViewModel(StartViewModel startViewModel)
         {
+            startViewModel.ShowOverlayAction = OpenOverlay;
+            startViewModel.HideOverlayAction = HideOverlay;
+            startViewModel.OpenProjectAction = OpenProject;
 
-            projectsViewModel.ShowOverlayAction = OpenOverlay;
-            projectsViewModel.HideOverlayAction = HideOverlay;
-            projectsViewModel.OpenProjectAction = OpenProject;
+            CurrentViewModel = startViewModel;
 
-            CurrentViewModel = projectsViewModel;
-
-            _ = InitializeAsync(projectsViewModel);
+            _ = InitializeAsync(startViewModel);
         }
 
-        private async Task InitializeAsync(ProjectsViewModel projectViewModel) =>
-            await projectViewModel.LoadAsync();
+        private async Task InitializeAsync(StartViewModel startViewModel)
+            => await startViewModel.LoadAsync();
 
-        private void OpenOverlay(ViewModelBase viewModel) => OverlayViewModel = viewModel;
+        private void OpenOverlay(ViewModelBase viewModel)
+            => OverlayViewModel = viewModel;
 
-        private void HideOverlay() => OverlayViewModel = null;
+        private void HideOverlay()
+            => OverlayViewModel = null;
 
         private void OpenProject(Project project)
-        {
-            CurrentViewModel = new ProjectOverviewViewModel(project);
-        }
+            => CurrentViewModel = new ProjectOverviewViewModel(project);
     }
 }

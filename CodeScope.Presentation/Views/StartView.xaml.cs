@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 namespace CodeScope.Presentation.Views
 {
     /// <summary>
-    /// Interaction logic for StartView.xaml
+    /// Interaction logic for StartViewModel.xaml
     /// </summary>
     public partial class StartView : UserControl
     {

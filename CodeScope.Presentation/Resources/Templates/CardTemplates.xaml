@@ -14,7 +14,8 @@
                        Style="{StaticResource CardHeader}"/>
 
             <TextBlock Text="{Binding RootPath}"
-                       Style="{StaticResource SecondaryCardHeader}"/>
+                       Style="{StaticResource SecondaryCardHeader}"
+                       Grid.Row="1"/>
 
         </Grid>
         

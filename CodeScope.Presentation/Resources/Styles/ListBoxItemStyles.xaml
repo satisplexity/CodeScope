@@ -12,13 +12,40 @@
 
                 <ControlTemplate TargetType="ListBoxItem">
 
-                    <Border Background="#292929"
+                    <Border Name="Border"
+                            
+                            
+                            Background="#292929"
                             CornerRadius="15"
-                            Padding="10">
+                            Padding="10"
+                            BorderThickness="3"
+                            BorderBrush="#00444445">
 
                         <ContentPresenter/>
 
                     </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="#303033"/>
+
+                        </Trigger>
+
+                        <Trigger Property="IsSelected"
+                                 Value="True">
+
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="#3B3B42"/>
+
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
                     
                 </ControlTemplate>
                 

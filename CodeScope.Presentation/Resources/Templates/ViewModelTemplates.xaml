@@ -3,9 +3,9 @@
                     xmlns:views="clr-namespace:CodeScope.Presentation.Views"
                     xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels">
 
-    <DataTemplate DataType="{xaml:Type viewModels:ProjectsViewModel}">
+    <DataTemplate DataType="{xaml:Type viewModels:StartViewModel}">
 
-        <views:ProjectsView/>
+        <views:StartView/>
 
     </DataTemplate>
 

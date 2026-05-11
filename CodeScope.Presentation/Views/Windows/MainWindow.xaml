@@ -7,7 +7,7 @@
         Height="900"
         Width="1200">
 
-    <Grid>
+    <Grid Background="#222">
         
         <ContentControl Content="{Binding CurrentViewModel}"/>
 

@@ -39,7 +39,7 @@ namespace CodeScope.Presentation
             services.AddSingleton<IProjectRepository, JsonProjectRepository>();
             
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<ProjectsViewModel>();
+            services.AddSingleton<StartViewModel>();
             services.AddSingleton<CreateProjectViewModel>();
             services.AddSingleton<ProjectOverviewViewModel>();
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-using CodeScope.Domain.Projects;
+﻿using CodeScope.Domain.Projects;
 using CodeScope.Presentation.ViewModels.Base;
 
 namespace CodeScope.Presentation.ViewModels

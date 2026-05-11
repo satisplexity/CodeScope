@@ -20,7 +20,8 @@
                 <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ListBoxItemStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ListBoxStyles.xaml"/>
-                
+                <ResourceDictionary Source="/Resources/Styles/GridStyles.xaml"/>
+
                 <ResourceDictionary Source="/Resources/Templates/ViewModelTemplates.xaml"/>
                 <ResourceDictionary Source="/Resources/Templates/CardTemplates.xaml"/>
 

@@ -8,8 +8,10 @@
         Width="1200">
 
     <Grid Background="#222">
-        
-        <ContentControl Content="{Binding CurrentViewModel}"/>
+
+        <ContentControl Content="{Binding CurrentViewModel}">
+           
+        </ContentControl>
 
         <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
               Background="#C111">

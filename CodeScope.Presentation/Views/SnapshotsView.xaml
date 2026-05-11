@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CodeScope.Presentation.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Style="{StaticResource AnimatedPageStyle}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="auto"/>

@@ -8,38 +8,48 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="55"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Border MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"
                 Background="#1B1B1C"
-                CornerRadius="20, 20, 0, 0">
+                CornerRadius="19, 19, 0, 0">
             
-            <Grid>
+            <Grid Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Style="{StaticResource ButtonText}"
-                           Text="CodeScope"/>
+                           Text="CodeScope"
+                           Margin="10, 0"/>
                 
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    
-                    <Button Style="{StaticResource RoundedButton}"
-                            Content="_"
-                            Click="MinimizeButton_Click"/>
 
-                    <Button Style="{StaticResource RoundedButton}"
-                            Content="☐"
-                            Click="MaximizeButton_Click"/>
-                    
-                    <Button Style="{StaticResource RoundedButton}"
-                            Content="✕"
-                            Click="CloseButton_Click"/>
+                    <Button Style="{StaticResource RoundButton}"
+                            Click="MinimizeButton_Click">
+
+                        <Path Style="{StaticResource InterfaceIcon_TitleBar_Minimize}"/>
+
+                    </Button>
+
+                    <Button Style="{StaticResource RoundButton}"
+                            Click="MaximizeButton_Click">
+
+                        <Path Style="{StaticResource InterfaceIcon_TitleBar_Maximize}"/>
+
+                    </Button>
+
+                    <Button Style="{StaticResource RoundButton}"
+                            Click="CloseButton_Click">
+
+                        <Path Style="{StaticResource InterfaceIcon_TitleBar_Close}"/>
+
+                    </Button>
 
             </StackPanel>
 

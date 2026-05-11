@@ -8,19 +8,13 @@
                 Value="#CFCDCF"/>
 
         <Setter Property="Background"
-                Value="#000000"/>
+                Value="#00000000"/>
 
         <Setter Property="Padding"
                 Value="20, 10"/>
 
         <Setter Property="Margin"
                 Value="10"/>
-        
-        <Setter Property="VerticalAlignment"
-                Value="Center"/>
-
-        <Setter Property="HorizontalAlignment"
-                Value="Center"/>
 
         <Setter Property="FontFamily"
                 Value="{StaticResource Manrope}"/>
@@ -34,7 +28,8 @@
                             Background="#232323"
                             CornerRadius="20"
                             BorderThickness="2"
-                            HorizontalAlignment="Center">
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
                         <Border.BorderBrush>
 
                             <LinearGradientBrush StartPoint="0.5, 0"
@@ -52,10 +47,9 @@
 
                         </Border.BorderBrush>
 
-                        <Grid HorizontalAlignment="Center">
+                        <Grid>
 
                             <ContentPresenter Content="{TemplateBinding Content}"
-                                              HorizontalAlignment="Center"
                                               Margin="{TemplateBinding Padding}"/>
 
                             <Border Background="{TemplateBinding Background}"
@@ -176,6 +170,21 @@
             
         </Style.Triggers>
         
+    </Style>
+
+    <Style xaml:Key="RoundButton"
+           TargetType="{xaml:Type Button}"
+           BasedOn="{StaticResource RoundedButton}">
+
+        <Setter Property="Width"
+                Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+
+        <Setter Property="Padding"
+                Value="6"/>
+
+        <Setter Property="Margin"
+                Value="5"/>
+
     </Style>
     
 </ResourceDictionary>

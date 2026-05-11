@@ -26,7 +26,8 @@
                 <shell:WindowChrome CaptionHeight="5"
                                     ResizeBorderThickness="6"
                                     CornerRadius="0"
-                                    GlassFrameThickness="0"/>
+                                    GlassFrameThickness="0"
+                                    UseAeroCaptionButtons="False"/>
 
             </Setter.Value>
         </Setter>
@@ -39,13 +40,13 @@
                     <Border Name="Border"
                             Background="#19191A"
                             CornerRadius="20"
-                            BorderThickness="4">
+                            BorderThickness="2">
                         <Border.BorderBrush>
 
                             <LinearGradientBrush StartPoint="0.5, 0"
                                                  EndPoint="0.5, 1">
 
-                                <GradientStop Color="#1E1E1F"
+                                <GradientStop Color="#212122"
                                               Offset="0"/>
 
                                 <GradientStop Color="#131314"
@@ -68,6 +69,10 @@
                             <Setter TargetName="Border"
                                     Property="CornerRadius"
                                     Value="0"/>
+
+                            <Setter TargetName="Border"
+                                    Property="Padding"
+                                    Value="5"/>
 
                         </Trigger>
                         

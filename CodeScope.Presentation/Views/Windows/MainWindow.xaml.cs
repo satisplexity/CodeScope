@@ -11,6 +11,8 @@ namespace CodeScope.Presentation.Views.Windows
             InitializeComponent();
 
             DataContext = viewModel;
+
+            StateChanged += MainWindow_StateChanged;
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -36,5 +38,17 @@ namespace CodeScope.Presentation.Views.Windows
 
         private void SwitchWindowState()
             => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+
+        private void MainWindow_StateChanged(object? sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                MaxHeight = SystemParameters.WorkArea.Height;
+            }
+            else
+            {
+                MaxHeight = double.PositiveInfinity;
+            }
+        }
     }
 }

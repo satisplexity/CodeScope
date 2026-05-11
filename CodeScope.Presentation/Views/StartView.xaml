@@ -24,7 +24,9 @@
 
         <ListBox ItemsSource="{Binding Projects}"
                  Grid.Row="1"
-                 SelectedItem="{Binding SelectedProject}">
+                 SelectedItem="{Binding SelectedProject}"
+                 Style="{StaticResource ProjectsListBox}"
+                 ItemContainerStyle="{StaticResource ProjectListBoxItem}">
             <ListBox.ItemTemplate>
 
                 <DataTemplate>

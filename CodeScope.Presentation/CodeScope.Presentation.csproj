@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\Controls\ActionButton\" />
     <Folder Include="UI\Controls\NavigationButton\" />
     <Folder Include="UI\Themes\Light\" />
     <Folder Include="UI\Themes\Dark\" />

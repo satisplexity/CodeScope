@@ -1,0 +1,98 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region PRIMARY -->
+
+    <SolidColorBrush x:Key="PrimaryNormalBrush"
+                 Color="{DynamicResource PrimaryNormalColor}"/>
+
+    <SolidColorBrush x:Key="PrimaryHoverBrush"
+                 Color="{DynamicResource PrimaryHoverColor}"/>
+
+    <SolidColorBrush x:Key="PrimaryDisabledCBrush"
+                 Color="{DynamicResource PrimaryDisabledColor}"/>
+
+    <!--#endregion-->
+
+    <!--#region SUCCESS -->
+
+    <SolidColorBrush x:Key="SuccessNormalBrush"
+                 Color="{DynamicResource SuccessNormalColor}"/>
+
+    <SolidColorBrush x:Key="SuccessHoverBrush"
+                 Color="{DynamicResource SuccessHoverColor}"/>
+
+    <SolidColorBrush x:Key="SuccessDisabledBrush"
+                 Color="{DynamicResource SuccessDisabledColor}"/>
+
+    <!--#endregion-->
+
+    <!--#region DANGER -->
+
+    <SolidColorBrush x:Key="DangerNormalBrush"
+                 Color="{DynamicResource DangerNormalColor}"/>
+
+    <SolidColorBrush x:Key="DangerHoverBrush"
+                 Color="{DynamicResource DangerHoverColor}"/>
+
+    <SolidColorBrush x:Key="DangerDisabledBrush"
+                 Color="{DynamicResource DangerDisabledColor}"/>
+
+    <!--#endregion-->
+
+    <!--#region DEFAULT -->
+
+    <SolidColorBrush x:Key="DefaultNormalBrush"
+                 Color="{DynamicResource DefaultNormalColor}"/>
+
+    <SolidColorBrush x:Key="DefaultHoverBrush"
+                 Color="{DynamicResource DefaultHoverColor}"/>
+
+    <SolidColorBrush x:Key="DefaultDisabledBrush"
+                 Color="{DynamicResource DefaultDisabledColor}"/>
+
+    <!--#endregion-->
+
+    <!--#region SURFACE -->
+
+    <SolidColorBrush x:Key="SurfaceNormalBrush"
+                 Color="{DynamicResource SurfaceNormalColor}"/>
+
+    <SolidColorBrush x:Key="SurfaceHoverBrush"
+                 Color="{DynamicResource SurfaceHoverColor}"/>
+
+    <SolidColorBrush x:Key="SurfaceDisabledBrush"
+                 Color="{DynamicResource SurfaceDisabledColor}"/>
+
+    <!--#endregion-->
+
+    <!--#region BACKGROUND -->
+
+    <SolidColorBrush x:Key="CoreBackgroundBrush"
+                     Color="{DynamicResource CoreBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="MajorPanelBackgroundBrush"
+                     Color="{DynamicResource MajorPanelBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="MinorPanelBackgroundBrush"
+                     Color="{DynamicResource MinorPanelBackgroundColor}"/>
+
+    <!--#endregion-->
+    
+    <!--#region BORDER -->
+
+    <SolidColorBrush x:Key="WindowBorderTopBrush"
+                     Color="{DynamicResource WindowBorderTopColor}"/>
+
+    <SolidColorBrush x:Key="WindowBorderBottomBrush"
+                     Color="{DynamicResource WindowBorderBottomColor}"/>
+
+    <SolidColorBrush x:Key="SurfaceBorderTopBrush"
+                     Color="{DynamicResource SurfaceBorderTopColor}"/>
+
+    <SolidColorBrush x:Key="SurfaceBorderBottomBrush"
+                     Color="{DynamicResource SurfaceBorderBottomColor}"/>
+
+    <!--#endregion-->
+    
+</ResourceDictionary>

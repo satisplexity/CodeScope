@@ -1,0 +1,118 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region PRIMARY -->
+
+    <Color x:Key="PrimaryNormalColor">
+        #A277FF
+    </Color>
+
+    <Color x:Key="PrimaryHoverColor">
+        #B48DFF
+    </Color>
+
+    <Color x:Key="PrimaryDisabledColor">
+        #4A4457
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region SUCCESS -->
+
+    <Color x:Key="SuccessNormalColor">
+        #67D38F
+    </Color>
+
+    <Color x:Key="SuccessHoverColor">
+        #7EE2A2
+    </Color>
+
+    <Color x:Key="SuccessDisabledColor">
+        #445248
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region DANGER -->
+
+    <Color x:Key="DangerNormalColor">
+        #FF7070
+    </Color>
+
+    <Color x:Key="DangerHoverColor">
+        #FF8A8A
+    </Color>
+
+    <Color x:Key="DangerDisabledColor">
+        #5C4545
+    </Color>
+
+    <!--#region DEFAULT -->
+
+    <Color x:Key="DefaultNormalColor">
+        #D8D8D8
+    </Color>
+
+    <Color x:Key="DefaultHoverColor">
+        #FFFFFF
+    </Color>
+
+    <Color x:Key="DefaultDisabledColor">
+        #5C5C5C
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region SURFACE -->
+
+    <Color x:Key="SurfaceNormalColor">
+        #2B2B2B
+    </Color>
+
+    <Color x:Key="SurfaceHoverColor">
+        #353535
+    </Color>
+
+    <Color x:Key="SurfaceDisabledColor">
+        #272727
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region BACKGROUND -->
+
+    <Color x:Key="CoreBackgroundColor">
+        #191919
+    </Color>
+
+    <Color x:Key="MajorPanelBackgroundColor">
+        #1F1F1F
+    </Color>
+
+    <Color x:Key="MinorPanelBackgroundColor">
+        #232323
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region BORDER -->
+
+    <Color x:Key="WindowBorderTopColor">
+        #2C2C2C
+    </Color>
+
+    <Color x:Key="WindowBorderBottomColor">
+        #171717
+    </Color>
+
+    <Color x:Key="SurfaceBorderTopColor">
+        #2E2E2E
+    </Color>
+
+    <Color x:Key="SurfaceBorderBottomColor">
+        #2C2C2C
+    </Color>
+    
+    <!--#endregion-->
+    
+</ResourceDictionary>

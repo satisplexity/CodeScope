@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ExponentialEase x:Key="BackEaseFunction"
+              EasingMode="EaseInOut"/>
+
+    <Storyboard x:Key="OpacityMouseEnterAnimation">
+
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0.7"
+                         To="1"
+                         Duration="0:0:0:0.1"/>
+
+    </Storyboard>
+
+    <Storyboard x:Key="OpacityMouseLeaveAnimation">
+
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="1"
+                         To="0.7"
+                         Duration="0:0:0:0.1"/>
+
+    </Storyboard>
+
+    <Storyboard x:Key="ClickAnimation">
+
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                         From="1"
+                         To="0.8"
+                         Duration="0:0:0.1"
+                         EasingFunction="{StaticResource BackEaseFunction}"
+                         AutoReverse="True"/>
+
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                         From="1"
+                         To="0.8"
+                         Duration="0:0:0.1"
+                         EasingFunction="{StaticResource BackEaseFunction}"
+                         AutoReverse="True"/>
+
+    </Storyboard>
+    
+</ResourceDictionary>

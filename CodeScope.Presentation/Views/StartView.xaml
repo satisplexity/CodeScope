@@ -1,7 +1,8 @@
 ﻿<UserControl xaml:Class="CodeScope.Presentation.Views.StartView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CodeScope.Presentation.Views">
+             xmlns:local="clr-namespace:CodeScope.Presentation.Views"
+             xmlns:c="clr-namespace:CodeScope.Presentation.UI.Controls.ActionButton">
 
     <Grid Style="{StaticResource AnimatedPageStyle}">
         <Grid.RowDefinitions>
@@ -89,6 +90,18 @@
                 </StackPanel>
 
             </Button>
+
+            <c:ActionButton ActionType="Default"
+                            Text="Default"/>
+
+            <c:ActionButton ActionType="Primary"
+                            Text="Primary"/>
+            
+            <c:ActionButton ActionType="Success"
+                            Text="Success"/>
+            
+            <c:ActionButton ActionType="Danger"
+                            Text="Danger"/>
 
         </StackPanel>
 

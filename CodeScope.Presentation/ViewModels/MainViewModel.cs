@@ -35,8 +35,6 @@ namespace CodeScope.Presentation.ViewModels
 
         public MainViewModel(StartViewModel startViewModel)
         {
-            startViewModel.ShowOverlayAction = OpenOverlay;
-            startViewModel.HideOverlayAction = HideOverlay;
             startViewModel.OpenProjectAction = OpenProject;
             startViewModel.SwitchViewAction = SwitchView;
             startViewModel.GoToLastViewAction = GoToLastView;
@@ -62,12 +60,6 @@ namespace CodeScope.Presentation.ViewModels
                 SwitchView(_lastViewModel);
             }
         }
-
-        private void OpenOverlay(ViewModelBase viewModel)
-            => OverlayViewModel = viewModel;
-
-        private void HideOverlay()
-            => OverlayViewModel = null;
 
         private void OpenProject(Project project)
             => CurrentViewModel = new ProjectOverviewViewModel(project);

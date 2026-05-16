@@ -32,6 +32,7 @@
                 <ResourceDictionary Source="/UI/Themes/Dark/Colors.xaml"/>
                 <ResourceDictionary Source="/UI/Themes/Shared/Brushes.xaml"/>
                 <ResourceDictionary Source="/UI/Themes/Shared/Animations.xaml"/>
+                <ResourceDictionary Source="/UI/Icons/InterafaceIcons.xaml"/>
                 <ResourceDictionary Source="/UI/Controls/ActionButton/ActionButtonStyle.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>

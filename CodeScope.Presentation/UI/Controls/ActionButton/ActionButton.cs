@@ -81,19 +81,5 @@ namespace CodeScope.Presentation.UI.Controls.ActionButton
                 new PropertyMetadata(ActionType.Default));
 
         #endregion
-
-        #region HasText Property
-
-        public bool HasText =>
-            !string.IsNullOrWhiteSpace(Text);
-
-        #endregion
-
-        #region HasIcon Property
-
-        public bool HasIcon =>
-            IconData is not null;
-
-        #endregion
     }
 }

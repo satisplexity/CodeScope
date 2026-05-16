@@ -47,61 +47,24 @@
         <StackPanel VerticalAlignment="Center"
             HorizontalAlignment="Right"
             Orientation="Horizontal"
-            Grid.Row="4">
-
-            <Button Style="{StaticResource RoundedButton}"
-            Command="{Binding CreateProjectCommand}">
-
-                <StackPanel Orientation="Horizontal">
-
-                    <Path Style="{StaticResource InterfaceIcon_Plus}"/>
-
-                    <TextBlock Style="{StaticResource ButtonText}"
-                       Text="Add project"/>
-
-                </StackPanel>
-
-            </Button>
-
-            <Button Style="{StaticResource RoundedButton}"
-            Command="{Binding DeleteProjectCommand}">
-
-                <StackPanel Orientation="Horizontal">
-
-                    <Path Style="{StaticResource InterfaceIcon_Trash}"/>
-
-                    <TextBlock Style="{StaticResource ButtonText}"
-                       Text="Delete"/>
-
-                </StackPanel>
-
-            </Button>
-
-            <Button Style="{StaticResource RoundedButton}"
-            Command="{Binding OpenProjectCommand}">
-
-                <StackPanel Orientation="Horizontal">
-
-                    <Path Style="{StaticResource InterfaceIcon_View}"/>
-
-                    <TextBlock Style="{StaticResource ButtonText}"
-                       Text="Open"/>
-
-                </StackPanel>
-
-            </Button>
+            Grid.Row="4"
+                    Margin="0, 0, 7, 0">
 
             <c:ActionButton ActionType="Default"
-                            Text="Default"/>
+                            Text="Add project"
+                            IconData="{StaticResource InterfaceIcon_Plus}"
+                            Command="{Binding CreateProjectCommand}"/>
 
-            <c:ActionButton ActionType="Primary"
-                            Text="Primary"/>
-            
-            <c:ActionButton ActionType="Success"
-                            Text="Success"/>
-            
             <c:ActionButton ActionType="Danger"
-                            Text="Danger"/>
+                            Text="Delete"
+                            IconData="{StaticResource InterfaceIcon_Trash}"
+                            Command="{Binding DeleteProjectCommand}"/>
+            
+            <c:ActionButton ActionType="Primary"
+                            Text="Open"
+                            IconData="{StaticResource InterfaceIcon_SearchAlt}"
+                            Command="{Binding OpenProjectCommand}"/>
+            
 
         </StackPanel>
 

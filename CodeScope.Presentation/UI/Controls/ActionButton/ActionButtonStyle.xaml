@@ -14,7 +14,7 @@
                 Value="20, 10"/>
 
         <Setter Property="Margin"
-                Value="20"/>
+                Value="7, 15"/>
 
         <Setter Property="Opacity"
                 Value="0.7"/>
@@ -60,15 +60,16 @@
                             
                         </Border.BorderBrush>
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="{TemplateBinding Padding}">
 
                             <Path Data="{TemplateBinding IconData}"
                                   Fill="{TemplateBinding Foreground}"
-                                  Stretch="UniformToFill"/>
+                                  Stretch="Uniform"/>
 
                             <TextBlock Style="{StaticResource ButtonText}"
                                        Text="{TemplateBinding Text}"
-                                       Margin="{TemplateBinding Padding}"
+                                       Margin="10, 0, 0, 0"
                                        Foreground="{TemplateBinding Foreground}"/>
                             
                         </StackPanel>
@@ -77,6 +78,24 @@
 
                     <ControlTemplate.Triggers>
 
+                        <!--#region STARTUP SETTINGS -->
+                        
+                        <Trigger Property="Text"
+                                 Value="">
+
+                            <Setter Property="Padding"
+                                    Value="10, 10"/>
+
+                        </Trigger>
+
+                        <Trigger Property="IconData"
+                                 Value="">
+
+                            <Setter Property="Padding"
+                                    Value="10, 10"/>
+
+                        </Trigger>
+
                         <Trigger Property="ActionType"
                                  Value="Primary">
 
@@ -84,6 +103,8 @@
                                     Value="{StaticResource PrimaryNormalBrush}"/>
 
                         </Trigger>
+                        
+                        <!--#endregion-->
                         
                         <!-- DEFAULT -->
 

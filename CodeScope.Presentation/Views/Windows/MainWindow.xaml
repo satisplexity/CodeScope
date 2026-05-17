@@ -6,6 +6,18 @@
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource RoundedWindow}">
 
+    <Window.Resources>
+
+        <BackEase xaml:Key="TransitionEasingIn"
+                  Amplitude="0.5"
+                  EasingMode="EaseIn"/>
+
+        <BackEase xaml:Key="TransitionEasingOut"
+                  Amplitude="0.5"
+                  EasingMode="EaseOut"/>
+
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -56,26 +68,106 @@
         </Grid>
         </Border>
         
-        
-        
         <Grid Grid.Row="1">
+            
             <ContentControl Content="{Binding CurrentViewModel}">
+                
+                <ContentControl.Style>
 
+                    <Style TargetType="ContentControl">
+
+                        <Setter Property="RenderTransformOrigin"
+                                Value="0.5, 0.5"/>
+
+                        <Setter Property="RenderTransform">
+
+                            <Setter.Value>
+
+                                <ScaleTransform ScaleX="1"
+                                                ScaleY="1"/>
+
+                            </Setter.Value>
+                            
+                        </Setter>
+
+                        <Style.Triggers>
+
+                            <DataTrigger Binding="{Binding TransitionState}"
+                                         Value="FadeOut">
+
+                                <DataTrigger.EnterActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                             From="1"
+                                                             To="0.3"
+                                                             Duration="0:0:4"/>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="(ContentControl.RenderTransform).(ScaleTransform.ScaleX)"
+                                                             From="1"
+                                                             To="0.8"
+                                                             Duration="0:0:4"
+                                                             EasingFunction="{StaticResource TransitionEasingIn}"/>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="(ContentControl.RenderTransform).(ScaleTransform.ScaleY)"
+                                                             From="1"
+                                                             To="0.8"
+                                                             Duration="0:0:4"
+                                                             EasingFunction="{StaticResource TransitionEasingIn}"/>
+
+                                        </Storyboard>
+                                        
+                                    </BeginStoryboard>
+                                    
+                                </DataTrigger.EnterActions>
+                                
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding TransitionState}"
+                                         Value="FadeIn">
+
+                                <DataTrigger.EnterActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                             From="0.3"
+                                                             To="1"
+                                                             Duration="0:0:0.2"/>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="(ContentControl.RenderTransform).(ScaleTransform.ScaleX)"
+                 From="0.8"
+                 To="1"
+                 Duration="0:0:0.2"
+                                                             EasingFunction="{StaticResource TransitionEasingOut}"/>
+
+                                            <DoubleAnimation Storyboard.TargetProperty="(ContentControl.RenderTransform).(ScaleTransform.ScaleY)"
+                 From="0.8"
+                 To="1"
+                 Duration="0:0:0.2"
+                                                             EasingFunction="{StaticResource TransitionEasingOut}"/>
+
+                                        </Storyboard>
+                                        
+                                    </BeginStoryboard>
+                                    
+                                </DataTrigger.EnterActions>
+
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                        
+                    </Style>
+                    
+                </ContentControl.Style>
+                
             </ContentControl>
-
-            <Grid Visibility="{Binding IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
-              Background="#C111">
-
-                <Border Background="#222"
-                    Margin="100"
-                    CornerRadius="20"
-                    Padding="10">
-
-                    <ContentControl Content="{Binding OverlayViewModel}"/>
-
-                </Border>
-
-            </Grid>
+            
         </Grid>
 
     </Grid>

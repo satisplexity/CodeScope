@@ -1,8 +1,18 @@
 ﻿using CodeScope.Domain.Projects;
 using CodeScope.Presentation.ViewModels.Base;
+using System.Windows.Threading;
+using System.Windows;
+
 
 namespace CodeScope.Presentation.ViewModels
 {
+    public enum TransitionState
+    {
+        None,
+        FadeIn,
+        FadeOut,
+    }
+
     public class MainViewModel : ViewModelBase
     {
         private ViewModelBase _currentViewModel;
@@ -31,6 +41,14 @@ namespace CodeScope.Presentation.ViewModels
 
         private ViewModelBase _lastViewModel = null;
 
+        private TransitionState _transitionState = TransitionState.None;
+
+        public TransitionState TransitionState
+        {
+            get => _transitionState;
+            set => SetProperty(ref _transitionState, value);
+        }
+
         public bool IsOverlayOpen => OverlayViewModel is not null;
 
         public MainViewModel(StartViewModel startViewModel)
@@ -39,7 +57,7 @@ namespace CodeScope.Presentation.ViewModels
             startViewModel.SwitchViewAction = SwitchView;
             startViewModel.GoToLastViewAction = GoToLastView;
 
-            CurrentViewModel = startViewModel;
+            SwitchView(startViewModel);
 
             _ = InitializeAsync(startViewModel);
         }
@@ -49,8 +67,22 @@ namespace CodeScope.Presentation.ViewModels
 
         private void SwitchView(ViewModelBase viewModel)
         {
-            _lastViewModel = CurrentViewModel;
+            _ = AnimateTrasition(viewModel);
+        }
+
+        private async Task AnimateTrasition(ViewModelBase viewModel)
+        {
+
+            await Task.Delay(60);
+
+           _lastViewModel = CurrentViewModel;
+
+            TransitionState = TransitionState.FadeOut;
+
+
             CurrentViewModel = viewModel;
+
+            TransitionState = TransitionState.FadeIn;
         }
 
         private void GoToLastView()
@@ -62,6 +94,8 @@ namespace CodeScope.Presentation.ViewModels
         }
 
         private void OpenProject(Project project)
-            => CurrentViewModel = new ProjectOverviewViewModel(project);
+        {
+            SwitchView(new ProjectOverviewViewModel(project));
+        }
     }
 }

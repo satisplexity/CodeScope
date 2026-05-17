@@ -1,7 +1,6 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
-using CodeScope.Presentation.Commands;
-using CodeScope.Presentation.ViewModels.Base;
+using CodeScope.Presentation.Framework.Foundation;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -63,10 +62,9 @@ namespace CodeScope.Presentation.ViewModels
             CreateProjectViewModel createProjectViewModel = new CreateProjectViewModel(_projectRepository)
             {
                 ProjectCreatedAction = OnProjectCreated,
-                GoToLastViewAction = this.GoToLastViewAction
             };
 
-            SwitchView(createProjectViewModel);
+            //SwitchView(createProjectViewModel);
         }
 
         private bool CheckProjectSeletct() => SelectedProject is not null;

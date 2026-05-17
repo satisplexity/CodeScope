@@ -1,8 +1,5 @@
 ﻿using CodeScope.Domain.Projects;
-using CodeScope.Presentation.ViewModels.Base;
-using System.Windows.Threading;
-using System.Windows;
-
+using CodeScope.Presentation.Framework.Foundation;
 
 namespace CodeScope.Presentation.ViewModels
 {
@@ -54,10 +51,10 @@ namespace CodeScope.Presentation.ViewModels
         public MainViewModel(StartViewModel startViewModel)
         {
             startViewModel.OpenProjectAction = OpenProject;
-            startViewModel.SwitchViewAction = SwitchView;
-            startViewModel.GoToLastViewAction = GoToLastView;
+            //startViewModel.SwitchViewAction = SwitchView;
+            //startViewModel.GoToLastViewAction = GoToLastView;
 
-            SwitchView(startViewModel);
+            //SwitchView(startViewModel);
 
             _ = InitializeAsync(startViewModel);
         }
@@ -95,7 +92,7 @@ namespace CodeScope.Presentation.ViewModels
 
         private void OpenProject(Project project)
         {
-            SwitchView(new ProjectOverviewViewModel(project));
+            //SwitchView(new ProjectOverviewViewModel(project));
         }
     }
 }

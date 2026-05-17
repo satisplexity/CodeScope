@@ -1,7 +1,6 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
-using CodeScope.Presentation.Commands;
-using CodeScope.Presentation.ViewModels.Base;
+using CodeScope.Presentation.Framework.Foundation;
 using System.Diagnostics;
 
 namespace CodeScope.Presentation.ViewModels
@@ -42,7 +41,7 @@ namespace CodeScope.Presentation.ViewModels
             _projectRepository = projectRepository;
             
             CreateProjectCommand = new RelayCommand(CreateProject, CanCreateProject);
-            HideCreateProjectCommand = new RelayCommand(GoToLastView);
+            //HideCreateProjectCommand = new RelayCommand(GoToLastView);
         }
 
         private bool CanCreateProject()

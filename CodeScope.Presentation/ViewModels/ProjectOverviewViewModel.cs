@@ -1,6 +1,6 @@
 ﻿using CodeScope.Domain.Projects;
 using CodeScope.Infrastructure.Persistence.Json;
-using CodeScope.Presentation.ViewModels.Base;
+using CodeScope.Presentation.Framework.Foundation;
 
 namespace CodeScope.Presentation.ViewModels
 {
@@ -27,7 +27,7 @@ namespace CodeScope.Presentation.ViewModels
 
             SnapshotsViewModel snapshotsViewModel = new SnapshotsViewModel(new JsonSnapshotRepository(), project);
 
-            CurrentView = snapshotsViewModel;
+            //CurrentView = snapshotsViewModel;
         }
     }
 }

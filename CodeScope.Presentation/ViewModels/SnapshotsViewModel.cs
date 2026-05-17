@@ -1,7 +1,6 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
-using CodeScope.Presentation.Commands;
-using CodeScope.Presentation.ViewModels.Base;
+using CodeScope.Presentation.Framework.Foundation;
 using System.Collections.ObjectModel;
 
 namespace CodeScope.Presentation.ViewModels

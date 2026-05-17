@@ -35,6 +35,9 @@
     <Folder Include="Features\ProjectWorkspace\Features\ProjectSettings\" />
     <Folder Include="Features\Splash\" />
     <Folder Include="Features\Settings\" />
+    <Folder Include="Framework\Foundation\" />
+    <Folder Include="Framework\Navigation\" />
+    <Folder Include="Framework\Services\" />
     <Folder Include="Shared\Localization\" />
     <Folder Include="Shared\Resources\Icons\" />
     <Folder Include="Shared\Resources\Fonts\" />

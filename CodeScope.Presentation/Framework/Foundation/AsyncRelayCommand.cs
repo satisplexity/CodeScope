@@ -1,6 +1,6 @@
 ﻿namespace CodeScope.Presentation.Framework.Foundation
 {
-    public class AsyncRelayCommand : CommandBase
+    public sealed class AsyncRelayCommand : CommandBase
     {
         private readonly Func<object?, Task> _execute;
 

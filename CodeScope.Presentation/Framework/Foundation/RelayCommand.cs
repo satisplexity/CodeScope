@@ -1,6 +1,6 @@
 ﻿namespace CodeScope.Presentation.Framework.Foundation
 {
-    public class RelayCommand : CommandBase
+    public sealed class RelayCommand : CommandBase
     {
         private readonly Action<object?> _execute;
 

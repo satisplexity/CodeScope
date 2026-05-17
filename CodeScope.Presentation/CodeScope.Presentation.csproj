@@ -36,6 +36,8 @@
     <Folder Include="Features\Splash\" />
     <Folder Include="Features\Settings\" />
     <Folder Include="Shared\Localization\" />
+    <Folder Include="Shared\Resources\Icons\" />
+    <Folder Include="Shared\Resources\Fonts\" />
     <Folder Include="Shared\Styles\" />
     <Folder Include="Shared\Themes\" />
     <Folder Include="UI\Controls\NavigationButton\" />

@@ -27,6 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Home\" />
+    <Folder Include="Features\Archive\" />
+    <Folder Include="Features\CreateProject\" />
+    <Folder Include="Features\ProjectWorkspace\Features\ProjectAnalysis\" />
+    <Folder Include="Features\ProjectWorkspace\Features\Snapshots\" />
+    <Folder Include="Features\ProjectWorkspace\Features\ProjectSettings\" />
+    <Folder Include="Features\Splash\" />
+    <Folder Include="Features\Settings\" />
+    <Folder Include="Features\Shell\" />
     <Folder Include="UI\Controls\NavigationButton\" />
     <Folder Include="UI\Themes\Light\" />
   </ItemGroup>

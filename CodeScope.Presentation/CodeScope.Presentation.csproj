@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Home\" />
+    <Folder Include="Features\ProjectsHub\" />
     <Folder Include="Features\Archive\" />
     <Folder Include="Features\CreateProject\" />
     <Folder Include="Features\ProjectWorkspace\Features\ProjectAnalysis\" />

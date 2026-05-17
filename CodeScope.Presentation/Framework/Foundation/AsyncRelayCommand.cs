@@ -1,8 +1,6 @@
-﻿using System.Windows.Input;
-
-namespace CodeScope.Presentation.Framework.Foundation
+﻿namespace CodeScope.Presentation.Framework.Foundation
 {
-    public class AsyncRelayCommand : ICommand
+    public class AsyncRelayCommand : CommandBase
     {
         private readonly Func<object?, Task> _execute;
 
@@ -10,14 +8,14 @@ namespace CodeScope.Presentation.Framework.Foundation
 
         private bool _isExecuting;
 
-        public event EventHandler? CanExecuteChanged;
-
+        /// <summary>
+        /// Initializes a command with a parameterless 
+        /// execute action and optional can-execute condition.
+        /// </summary>
         public AsyncRelayCommand(Func<Task> execute, Func<bool>? canExecute = null)
         {
             if (_execute is null)
-            {
                 throw new ArgumentNullException(nameof(execute));
-            }
 
             _execute = _ => execute();
 
@@ -26,6 +24,9 @@ namespace CodeScope.Presentation.Framework.Foundation
                 : _ => canExecute();
         }
 
+        /// <summary>
+        /// Initializes a command with parameterized execute and can-execute delegates.
+        /// </summary>
         public AsyncRelayCommand(Func<object?, Task> execute, Predicate<object?>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
@@ -35,10 +36,10 @@ namespace CodeScope.Presentation.Framework.Foundation
         /// <summary>
         /// Determines whether the command can execute and is not already running.
         /// </summary>
-        public bool CanExecute(object? parameter) =>
+        public override bool CanExecute(object? parameter) =>
             !_isExecuting && (_canExecute?.Invoke(parameter) ?? true);
 
-        public async void Execute(object? parameter)
+        public override async void Execute(object? parameter)
         {
             if (!CanExecute(parameter))
             {
@@ -57,8 +58,5 @@ namespace CodeScope.Presentation.Framework.Foundation
                 RaiseCanExecuteChanged();
             }
         }
-
-        public void RaiseCanExecuteChanged() =>
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

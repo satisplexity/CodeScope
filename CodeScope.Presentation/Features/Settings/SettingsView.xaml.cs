@@ -2,9 +2,9 @@
 
 namespace CodeScope.Presentation.Features.Settings
 {
-    public partial class Settings : UserControl
+    public partial class SettingsView : UserControl
     {
-        public Settings()
+        public SettingsView()
         {
             InitializeComponent();
         }

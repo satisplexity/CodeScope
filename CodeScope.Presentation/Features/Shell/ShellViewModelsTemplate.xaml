@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:projectsHub="clr-namespace:CodeScope.Presentation.Features.ProjectsHub"
+                    xmlns:createProject="clr-namespace:CodeScope.Presentation.Features.CreateProject"
+                    xmlns:archive="clr-namespace:CodeScope.Presentation.Features.Archive"
+                    xmlns:projectWorkspace="clr-namespace:CodeScope.Presentation.Features.ProjectWorkspace"
+                    xmlns:settings="clr-namespace:CodeScope.Presentation.Features.Settings">
+
+    <DataTemplate DataType="{x:Type projectsHub:ProjectsHubViewModel}">
+
+        <projectsHub:ProjectsHubView/>
+
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type createProject:CreateProjectViewModel}">
+
+        <createProject:CreateProjectView/>
+
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type archive:ArchiveViewModel}">
+
+        <archive:ArchiveView/>
+
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type projectWorkspace:ProjectWorkspaceViewModel}">
+
+        <projectWorkspace:ProjectWorkspaceView/>
+
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type settings:SettingsViewModel}">
+
+        <settings:SettingsView/>
+
+    </DataTemplate>
+    
+</ResourceDictionary>

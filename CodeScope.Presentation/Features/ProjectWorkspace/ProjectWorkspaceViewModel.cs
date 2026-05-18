@@ -2,7 +2,7 @@
 
 namespace CodeScope.Presentation.Features.ProjectWorkspace
 {
-    public class ProjectWorkspaceViewModel : ViewModelBase
+    public sealed class ProjectWorkspaceViewModel : ViewModelBase
     {
 
     }

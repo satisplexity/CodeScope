@@ -2,7 +2,7 @@
 
 namespace CodeScope.Presentation.Features.Settings
 {
-    public class SettingsViewModel : ViewModelBase
+    public sealed class SettingsViewModel : ViewModelBase
     { 
 
     }

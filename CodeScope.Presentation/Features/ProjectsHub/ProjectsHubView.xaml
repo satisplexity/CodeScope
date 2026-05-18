@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:CodeScope.Presentation.Features.ProjectsHub">
 
     <Grid>
-
+        <TextBlock Text="PROJECTS HUB"/>
     </Grid>
 
 </UserControl>

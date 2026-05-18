@@ -2,7 +2,7 @@
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
-    public class ProjectsHubViewModel : ViewModelBase
+    public sealed class ProjectsHubViewModel : ViewModelBase
     {
 
     }

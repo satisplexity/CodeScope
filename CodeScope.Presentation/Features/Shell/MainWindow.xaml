@@ -13,6 +13,8 @@
     
     <Grid>
 
+        <ContentControl Content="{Binding Navigation.CurrentViewModel}"/>
+
     </Grid>
     
 </Window>

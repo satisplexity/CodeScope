@@ -1,20 +1,18 @@
-﻿using CodeScope.Presentation.Framework.Foundation;
+﻿using CodeScope.Presentation.Features.ProjectsHub;
+using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Presentation.Framework.Navigation;
 
 namespace CodeScope.Presentation.Features.Shell
 {
     public sealed class MainViewModel : ViewModelBase
     {
-        private ViewModelBase _currentViewModel;
+        public INavigationService RootNavigation { get; }
 
-        public ViewModelBase CurrentViewModel
+        public MainViewModel(INavigationService rootNavigation)
         {
-            get => _currentViewModel;
-            set => SetProperty(ref _currentViewModel, value);
-        }
+            RootNavigation = rootNavigation;
 
-        public MainViewModel()
-        {
-
+            RootNavigation.NavigateTo<ProjectsHubViewModel>();
         }
     }
 }

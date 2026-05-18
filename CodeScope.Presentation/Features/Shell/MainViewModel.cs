@@ -1,7 +1,6 @@
-﻿using CodeScope.Presentation.Features.ProjectsHub;
+﻿using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Features.ProjectsHub;
 using CodeScope.Presentation.Framework.Foundation;
-using CodeScope.Presentation.Framework.Navigation.Abstractions;
-using CodeScope.Presentation.Framework.Navigation.Root;
 
 namespace CodeScope.Presentation.Features.Shell
 {

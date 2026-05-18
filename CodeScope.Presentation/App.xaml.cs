@@ -2,14 +2,14 @@
 using CodeScope.Presentation.Framework.Navigation.CreateProject;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Framework.Navigation.Root;
+using CodeScope.Presentation.Features.ProjectWorkspace;
+using CodeScope.Presentation.Features.CreateProject;
+using CodeScope.Presentation.Features.ProjectsHub;
+using CodeScope.Presentation.Features.Settings;
 using Microsoft.Extensions.DependencyInjection;
+using CodeScope.Presentation.Features.Archive;
 using CodeScope.Presentation.Features.Shell;
 using System.Windows;
-using CodeScope.Presentation.Features.Archive;
-using CodeScope.Presentation.Features.Settings;
-using CodeScope.Presentation.Features.ProjectsHub;
-using CodeScope.Presentation.Features.CreateProject;
-using CodeScope.Presentation.Features.ProjectWorkspace;
 
 namespace CodeScope.Presentation
 {

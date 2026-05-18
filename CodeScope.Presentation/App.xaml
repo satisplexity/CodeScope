@@ -1,42 +1,10 @@
 ﻿<Application xaml:Class="CodeScope.Presentation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:xaml="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CodeScope.Presentation"
-             xmlns:views="clr-namespace:CodeScope.Presentation.Views"
-             xmlns:viewModels="clr-namespace:CodeScope.Presentation.ViewModels">
+             xmlns:local="clr-namespace:CodeScope.Presentation">
+    
     <Application.Resources>
-        
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
-                <ResourceDictionary Source="/Resources/Converters/Converters.xaml"/>
-
-                <ResourceDictionary Source="/Resources/Icons/InterfaceIcons.xaml"/>
-                <ResourceDictionary Source="/Resources/Icons/ProjectsIcons.xaml"/>
-
-                <ResourceDictionary Source="/Resources/Fonts/FontFamilies.xaml"/>
-
-                <ResourceDictionary Source="/Resources/Styles/TextBlockStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/ListBoxItemStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/ListBoxStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/GridStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/WindowStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/BorderStyles.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/TextBoxStyles.xaml"/>
-
-                <ResourceDictionary Source="/Resources/Templates/ViewModelTemplates.xaml"/>
-                <ResourceDictionary Source="/Resources/Templates/CardTemplates.xaml"/>
-
-
-                <ResourceDictionary Source="/UI/Themes/Dark/Colors.xaml"/>
-                <ResourceDictionary Source="/UI/Themes/Shared/Brushes.xaml"/>
-                <ResourceDictionary Source="/UI/Themes/Shared/Animations.xaml"/>
-                <ResourceDictionary Source="/UI/Icons/InterafaceIcons.xaml"/>
-                <ResourceDictionary Source="/UI/Controls/ActionButton/ActionButtonStyle.xaml"/>
-
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
 
     </Application.Resources>
+    
 </Application>

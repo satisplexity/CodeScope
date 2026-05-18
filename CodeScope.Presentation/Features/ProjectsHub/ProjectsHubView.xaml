@@ -15,7 +15,8 @@
         
         <TextBlock Text="Hub"
                    FontSize="30"
-                   Foreground="#C9C"/>
+                   Foreground="#C9C"
+                   FontWeight="DemiBold"/>
 
         <Grid Grid.Row="2">
 

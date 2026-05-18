@@ -5,6 +5,37 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Back"
+                    Background="#222"
+                    Foreground="Gray"
+                    Padding="10, 5"
+                    Command="{Binding GoBackCommand}"/>
+
+            <TextBlock Text="Settings"
+                       Grid.Column="1"
+                       Foreground="#C9C"
+                       FontSize="30"
+                       FontWeight="DemiBold"
+                       Margin="10, 0"/>
+
+        </Grid>
+        
     </Grid>
 
 </UserControl>

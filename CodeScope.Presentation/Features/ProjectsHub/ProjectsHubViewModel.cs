@@ -22,7 +22,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             OpenSettingsCommand = new(rootNavigationService.NavigateTo<SettingsViewModel>);
 
-            OpenArchiveCommand = new(() => MessageBox.Show("ARHIVE PROJECT"));
+            ArchiveProjectCommand = new(() => MessageBox.Show("ARHIVE PROJECT"));
 
             OpenCreateProjectCommand = new(rootNavigationService.NavigateTo<CreateProjectViewModel>);
 

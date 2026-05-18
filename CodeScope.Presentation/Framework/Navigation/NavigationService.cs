@@ -1,4 +1,5 @@
 ﻿using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeScope.Presentation.Framework.Navigation

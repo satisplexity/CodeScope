@@ -1,9 +1,10 @@
-﻿using CodeScope.Application.Projects.Abstractions;
-using CodeScope.Infrastructure.Persistence.Json;
+﻿using CodeScope.Presentation.Framework.Navigation.ProjectWorkspace;
+using CodeScope.Presentation.Framework.Navigation.CreateProject;
+using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Framework.Navigation.Root;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows;
-
 using CodeScope.Presentation.Features.Shell;
+using System.Windows;
 
 namespace CodeScope.Presentation
 {
@@ -11,9 +12,9 @@ namespace CodeScope.Presentation
     {
         private IServiceProvider _serviceProvider = null!;
 
-        protected override void OnStartup(StartupEventArgs startupArgs)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(startupArgs);
+            base.OnStartup(e);
 
             ServiceCollection services = new();
 
@@ -41,14 +42,22 @@ namespace CodeScope.Presentation
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IProjectRepository, JsonProjectRepository>();
+            // Navigation stores
+            services.AddSingleton<RootNavigationStore>();
+            services.AddSingleton<CreateProjectNavigationStore>();
+            services.AddSingleton<ProjectWorkspaceNavigationStore>();
             
+            // Navigation services
+            services.AddSingleton<IRootNavigationService, RootNavigationService>();
+            services.AddSingleton<ICreateProjectNavigationService, CreateProjectNavigationService>();
+            services.AddSingleton<IProjectWorkspaceNavigationService, ProjectWorkspaceNavigationService>();
+            
+            // Main window
             services.AddSingleton<MainViewModel>();
-            //services.AddSingleton<StartViewModel>();
-            //services.AddSingleton<CreateProjectViewModel>();
-            //services.AddSingleton<ProjectOverviewViewModel>();
-
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<MainWindow>(serviceProvider => new MainWindow
+            {
+                DataContext = serviceProvider.GetRequiredService<MainViewModel>()
+            });
         }
     }
 }

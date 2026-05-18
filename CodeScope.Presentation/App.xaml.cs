@@ -23,8 +23,6 @@ namespace CodeScope.Presentation
             Services = services.BuildServiceProvider();
 
             ShowWindow();
-
-            //CountLines();
         }
 
         private void ShowWindow()
@@ -44,58 +42,6 @@ namespace CodeScope.Presentation
             //services.AddSingleton<ProjectOverviewViewModel>();
 
             services.AddSingleton<MainWindow>();
-        }
-
-        private void CountLines()
-        {
-            string projectPath = @"P:\CodeScope";
-
-            string[] ignoredDirectories =
-            [
-            "bin",
-"obj",
-".git",
-".vs"
-            ];
-
-            string[] allowedExtensions =
-            [
-            ".cs",
-".xaml"
-            ];
-
-            int totalLines = 0;
-
-            IEnumerable<string> files = Directory
-            .EnumerateFiles(
-            projectPath,
-            "*.*",
-            SearchOption.AllDirectories)
-            .Where(file =>
-            {
-                string extension = Path.GetExtension(file);
-
-                if (!allowedExtensions.Contains(extension))
-                {
-                    return false;
-                }
-
-                string path = file.ToLower();
-
-                return !ignoredDirectories.Any(dir =>
-    path.Contains($@"\{dir.ToLower()}\"));
-            });
-
-            foreach (string file in files)
-            {
-                int lineCount = File.ReadAllLines(file).Length;
-
-                totalLines += lineCount;
-
-                Console.WriteLine($"{lineCount} | {file}");
-            }
-
-            MessageBox.Show($"Total lines: {totalLines}");
         }
     }
 }

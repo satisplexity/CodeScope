@@ -1,6 +1,6 @@
 ﻿namespace CodeScope.Presentation.Framework.Navigation.Abstractions
 {
-    public interface IProjectWorkspaceNavigationService
+    public interface IProjectWorkspaceNavigationService : INavigationService
     {
 
     }

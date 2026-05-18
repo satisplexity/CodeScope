@@ -1,18 +1,19 @@
 ﻿using CodeScope.Presentation.Features.ProjectsHub;
 using CodeScope.Presentation.Framework.Foundation;
-using CodeScope.Presentation.Framework.Navigation;
+using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Framework.Navigation.Root;
 
 namespace CodeScope.Presentation.Features.Shell
 {
     public sealed class MainViewModel : ViewModelBase
     {
-        public INavigationService RootNavigation { get; }
+        public IRootNavigationService Navigation { get; }
 
-        public MainViewModel(INavigationService rootNavigation)
+        public MainViewModel(IRootNavigationService navigation)
         {
-            RootNavigation = rootNavigation;
+            Navigation = navigation;
 
-            RootNavigation.NavigateTo<ProjectsHubViewModel>();
+            Navigation.NavigateTo<ProjectsHubViewModel>();
         }
     }
 }

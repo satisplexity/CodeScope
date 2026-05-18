@@ -5,6 +5,11 @@ using CodeScope.Presentation.Framework.Navigation.Root;
 using Microsoft.Extensions.DependencyInjection;
 using CodeScope.Presentation.Features.Shell;
 using System.Windows;
+using CodeScope.Presentation.Features.Archive;
+using CodeScope.Presentation.Features.Settings;
+using CodeScope.Presentation.Features.ProjectsHub;
+using CodeScope.Presentation.Features.CreateProject;
+using CodeScope.Presentation.Features.ProjectWorkspace;
 
 namespace CodeScope.Presentation
 {
@@ -58,6 +63,18 @@ namespace CodeScope.Presentation
             {
                 DataContext = serviceProvider.GetRequiredService<MainViewModel>()
             });
+
+            // Root-level ViewModels
+            services.AddTransient<ArchiveViewModel>();
+            services.AddTransient<SettingsViewModel>();
+            services.AddTransient<ProjectsHubViewModel>();
+            services.AddTransient<CreateProjectViewModel>();
+            services.AddTransient<ProjectWorkspaceViewModel>();
+
+            // CreateProject-level ViewModels
+
+            // Workspace-level ViewModels
+            
         }
     }
 }

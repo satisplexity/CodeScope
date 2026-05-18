@@ -1,6 +1,6 @@
 ﻿namespace CodeScope.Presentation.Framework.Navigation.Abstractions
 {
-    internal interface IRootNavigationService
+    public interface IRootNavigationService : INavigationService
     {
 
     }

@@ -14,7 +14,7 @@
         /// </summary>
         public AsyncRelayCommand(Func<Task> execute, Func<bool>? canExecute = null)
         {
-            if (_execute is null)
+            if (execute is null)
                 throw new ArgumentNullException(nameof(execute));
 
             _execute = _ => execute();

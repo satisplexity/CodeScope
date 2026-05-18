@@ -1,10 +1,10 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Infrastructure.Persistence.Json;
-using CodeScope.Presentation.ViewModels;
-using CodeScope.Presentation.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Windows;
+
+using CodeScope.Presentation.Features.Shell;
 
 namespace CodeScope.Presentation
 {
@@ -39,9 +39,9 @@ namespace CodeScope.Presentation
             services.AddSingleton<IProjectRepository, JsonProjectRepository>();
             
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<StartViewModel>();
-            services.AddSingleton<CreateProjectViewModel>();
-            services.AddSingleton<ProjectOverviewViewModel>();
+            //services.AddSingleton<StartViewModel>();
+            //services.AddSingleton<CreateProjectViewModel>();
+            //services.AddSingleton<ProjectOverviewViewModel>();
 
             services.AddSingleton<MainWindow>();
         }

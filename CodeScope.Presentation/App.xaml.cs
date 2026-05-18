@@ -1,7 +1,6 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Infrastructure.Persistence.Json;
 using Microsoft.Extensions.DependencyInjection;
-using System.IO;
 using System.Windows;
 
 using CodeScope.Presentation.Features.Shell;
@@ -10,7 +9,7 @@ namespace CodeScope.Presentation
 {
     public partial class App : System.Windows.Application
     {
-        public IServiceProvider Services { get; private set; } = null!;
+        private IServiceProvider _serviceProvider = null!;
 
         protected override void OnStartup(StartupEventArgs startupArgs)
         {
@@ -20,14 +19,22 @@ namespace CodeScope.Presentation
 
             ConfigureServices(services);
 
-            Services = services.BuildServiceProvider();
+            _serviceProvider = services.BuildServiceProvider();
 
             ShowWindow();
         }
 
+        protected override void OnExit(ExitEventArgs exitArgs)
+        {
+            if (_serviceProvider is IDisposable disposable)
+                disposable.Dispose();
+
+            base.OnExit(exitArgs);
+        }
+
         private void ShowWindow()
         {
-            MainWindow window = Services.GetRequiredService<MainWindow>();
+            MainWindow window = _serviceProvider.GetRequiredService<MainWindow>();
 
             window.Show();
         }

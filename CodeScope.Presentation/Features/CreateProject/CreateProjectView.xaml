@@ -5,6 +5,37 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Back"
+                    Background="#222"
+                    Foreground="Gray"
+                    Padding="10, 5"
+                    Command="{Binding GoBackCommand}"/>
+
+            <TextBlock Text="Create project"
+                       Foreground="#C9C"
+                       Grid.Column="1"
+                       Margin="10, 0"
+                       FontSize="30"
+                       FontWeight="DemiBold"/>
+
+        </Grid>
+        
     </Grid>
 
 </UserControl>

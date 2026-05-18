@@ -2,7 +2,7 @@
 
 namespace CodeScope.Presentation.Framework.Navigation
 {
-    public sealed class NavigationStore : ObservableObject
+    public class NavigationStore : ObservableObject
     {
         private ViewModelBase? _currentViewModel;
 

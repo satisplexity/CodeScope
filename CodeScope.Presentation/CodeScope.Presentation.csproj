@@ -32,6 +32,8 @@
     <Folder Include="Features\ProjectWorkspace\Features\Snapshots\" />
     <Folder Include="Features\ProjectWorkspace\Features\ProjectSettings\" />
     <Folder Include="Features\Splash\" />
+    <Folder Include="Framework\Navigation\CreateProject\" />
+    <Folder Include="Framework\Navigation\ProjectWorkspace\" />
     <Folder Include="Framework\Services\" />
     <Folder Include="Shared\Localization\" />
     <Folder Include="Shared\Resources\Icons\" />

@@ -4,7 +4,7 @@ namespace CodeScope.Presentation.Framework.Navigation.Abstractions
 {
     public interface INavigationService
     {
-        ViewModelBase CurrentViewModel { get; }
+        ViewModelBase? CurrentViewModel { get; }
 
         void NavigateTo<TViewModel>()
             where TViewModel : ViewModelBase;

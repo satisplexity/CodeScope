@@ -1,8 +1,5 @@
 ﻿using CodeScope.Presentation.Framework.Foundation;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CodeScope.Presentation.Framework.Navigation
 {

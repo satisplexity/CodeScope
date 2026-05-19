@@ -9,11 +9,11 @@ namespace CodeScope.Presentation.Features.ProjectWorkspace
     {
         public AsyncRelayCommand OpenProjectHubCommand { get; }
 
-        private readonly Project _project;
+        public Project Project { get;  }
 
         public ProjectWorkspaceViewModel(IRootNavigationService navigation, Project project)
         {
-            _project = project;
+            Project = project;
 
             OpenProjectHubCommand = new(navigation.NavigateTo<ProjectsHubViewModel>);
         }

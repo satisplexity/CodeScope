@@ -21,7 +21,7 @@
 
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Project name"
+            <TextBlock Text="{Binding Project.Name}"
                        Foreground="#C9C"
                        FontSize="30"
                        FontWeight="DemiBold"/>

@@ -5,6 +5,36 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Project name"
+                       Foreground="#C9C"
+                       FontSize="30"
+                       FontWeight="DemiBold"/>
+
+            <Button Content="Open projects hub"
+                    Background="#222"
+                    Foreground="Gray"
+                    Padding="10, 5"
+                    Grid.Column="1"
+                    Command="{Binding OpenProjectsHubCommand}"/>
+
+        </Grid>
+        
     </Grid>
 
 </UserControl>

@@ -18,6 +18,224 @@
                    FontWeight="DemiBold"
                    Foreground="#99C"/>
 
+        <StackPanel Grid.Row="1">
+
+            <TextBlock Text="Root path"
+                       Foreground="White"/>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBox Background="#202020"
+                         Foreground="White"
+                         Grid.Column="1"
+                         Text="{Binding RootPath}"/>
+
+                <Button Content="Select"
+                        Background="#222"
+                        Foreground="Gray"
+                        Padding="10, 5"
+                        Command="{Binding SelectRootPathCommand}"/>
+
+            </Grid>
+
+            <TextBlock Text="Name"
+                       Foreground="White"/>
+
+            <TextBox Background="#202020"
+                       Foreground="White"
+                       Text="{Binding ProjectName}"/>
+
+            <TextBlock Text="Description"
+                       Foreground="White"/>
+
+            <TextBox Background="#202020"
+                     Foreground="White"
+                     Text="{Binding ProjectDescription}"/>
+
+            <TextBlock Text="Extensions"
+                       Foreground="White"/>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBox Background="#202020"
+                         Foreground="White"
+                         Text="{Binding NewExtension}"/>
+
+                <Button Content="Add"
+                        Background="#222"
+                        Foreground="Gray"
+                        Padding="10, 5"
+                        Grid.Column="1"
+                        Command="{Binding AddExtensionCommand}"/>
+
+            </Grid>
+
+            <ItemsControl ItemsSource="{Binding Draft.IncludedExtensions}">
+
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel Background="#292929"
+                                    Orientation="Horizontal">
+
+                            <TextBlock Text="{Binding}"
+                                       Foreground="MediumAquamarine"
+                                       VerticalAlignment="Center"/>
+
+                            <Button Content="Remove"
+                                    Background="#222"
+                                    Foreground="Gray"
+                                    Padding="10, 5"
+                                    Command="{Binding DataContext.RemoveExtensionCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                    
+                </ItemsControl.ItemTemplate>
+                
+            </ItemsControl>
+
+            <TextBlock Text="Ignored directories"
+                       Foreground="White"/>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Select"
+            Background="#222"
+Foreground="Gray"
+Padding="10, 5"
+Command="{Binding SelectIgnoredDirectoryCommand}"/>
+
+                <TextBox Background="#202020"
+                         Foreground="White"
+                         Grid.Column="1"
+                         Text="{Binding NewIngnoredDirectory}"/>
+
+                <Button Content="Add"
+                        Background="#222"
+            Foreground="Gray"
+            Padding="10, 5"
+            Grid.Column="2"
+            Command="{Binding AddIngnoredDirectoryCommand}"/>
+
+            </Grid>
+
+            <ItemsControl ItemsSource="{Binding Draft.IgnoredDirectories}">
+
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel Background="#292929"
+                        Orientation="Horizontal">
+
+                            <TextBlock Text="{Binding}"
+                           Foreground="MediumAquamarine"
+                           VerticalAlignment="Center"/>
+
+                            <Button Content="Remove"
+                        Background="#222"
+                        Foreground="Gray"
+                        Padding="10, 5"
+                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+
+
+            <TextBlock Text="Ignored files"
+                       Foreground="White"/>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Select"
+            Background="#222"
+Foreground="Gray"
+Padding="10, 5"
+Command="{Binding SelectIgnoredFileCommand}"/>
+
+                <TextBox Background="#202020"
+                         Foreground="White"
+                         Grid.Column="1"
+                         Text="{Binding NewIgnoredFile}"/>
+
+                <Button Content="Add"
+                        Background="#222"
+            Foreground="Gray"
+            Padding="10, 5"
+            Grid.Column="2"
+            Command="{Binding AddIgnoredFileCommand}"/>
+
+            </Grid>
+
+            <ItemsControl ItemsSource="{Binding Draft.IgnoredFiles}">
+
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel Background="#292929"
+                        Orientation="Horizontal">
+
+                            <TextBlock Text="{Binding}"
+                           Foreground="MediumAquamarine"
+                           VerticalAlignment="Center"/>
+
+                            <Button Content="Remove"
+                        Background="#222"
+                        Foreground="Gray"
+                        Padding="10, 5"
+                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+
+        </StackPanel>
+        
         <Button Content="Analyzer settings"
                 Background="#222"
                 Foreground="#99C"

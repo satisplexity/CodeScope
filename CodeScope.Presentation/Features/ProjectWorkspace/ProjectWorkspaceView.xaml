@@ -31,7 +31,7 @@
                     Foreground="Gray"
                     Padding="10, 5"
                     Grid.Column="1"
-                    Command="{Binding OpenProjectsHubCommand}"/>
+                    Command="{Binding OpenProjectHubCommand}"/>
 
         </Grid>
         

@@ -17,6 +17,7 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
             set
             {
                 Draft.Name = value;
+                _projectNameHasBeenChanged = true;
                 OnPropertyChanged();
             }
         }
@@ -40,7 +41,8 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 
                 if (!_projectNameHasBeenChanged)
                 {
-                    ProjectName = new DirectoryInfo(value).Name;
+                    Draft.Name = new DirectoryInfo(value).Name;
+                    OnPropertyChanged(nameof(ProjectName));
                 }
 
                 OnPropertyChanged();

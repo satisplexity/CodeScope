@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CodeScope.Presentation.Features.CreateProject">
 
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="/Features/CreateProject/CreateProjectViewModelTemplates.xaml"/>
+
+    </UserControl.Resources>
+    
     <Grid>
 
         <Grid.RowDefinitions>

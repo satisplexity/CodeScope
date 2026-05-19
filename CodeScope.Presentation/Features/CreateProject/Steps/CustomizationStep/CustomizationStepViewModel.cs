@@ -6,11 +6,11 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep
     {
         public RelayCommand GoToAnalyzerSettingsStepCommand { get; }
         
-        public RelayCommand CreateProjectCommand { get; }
+        public AsyncRelayCommand CreateProjectCommand { get; }
 
         private readonly CreateProjectDraft _draft;
 
-        public CustomizationStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Action createProjectAction)
+        public CustomizationStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Func<Task> createProjectAction)
         {
             _draft = draft;
 

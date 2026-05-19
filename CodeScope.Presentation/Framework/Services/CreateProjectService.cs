@@ -1,6 +1,7 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
 using CodeScope.Presentation.Features.CreateProject;
+using System.Diagnostics;
 
 namespace CodeScope.Presentation.Framework.Services
 {
@@ -28,6 +29,8 @@ namespace CodeScope.Presentation.Framework.Services
                 IncludedExtensions = draft.IncludedExtensions.ToList(),
                 IgnoredFiles = draft.IgnoredFiles.ToList(),
             };
+
+            Debug.WriteLine($"PROJECT {draft.Name} IS CREATED");
 
             await _repository.AddAsync(project);
             await _repository.SaveChangesAsync();

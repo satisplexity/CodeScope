@@ -3,6 +3,7 @@ using CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsStep;
 using CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep;
 using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Framework.Services;
 
 namespace CodeScope.Presentation.Features.CreateProject
 {
@@ -23,8 +24,12 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         private readonly CreateProjectDraft _draft = new CreateProjectDraft();
 
-        public CreateProjectViewModel(IRootNavigationService navigation)
+        private readonly CreateProjectService _createProjectService;
+
+        public CreateProjectViewModel(IRootNavigationService navigation, CreateProjectService createProjectService)
         {
+            _createProjectService = createProjectService;
+            
             GoBackCommand = new(navigation.GoBack);
 
             _steps = new ViewModelBase[]
@@ -43,9 +48,10 @@ namespace CodeScope.Presentation.Features.CreateProject
         public void GoToPreviousStep() =>
             CurrentStep = _steps[--_currentStepIndex];
 
-        public void CreateProject()
+        public async Task CreateProject()
         {
-            // CREATE PROJECT
+            await _createProjectService.ExecuteAsync(_draft);
+
             // NAVIGATE TO WORKSPACE
         }
     }

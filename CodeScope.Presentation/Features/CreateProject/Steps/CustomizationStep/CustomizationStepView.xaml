@@ -26,6 +26,14 @@
                 HorizontalAlignment="Left"
                 Command="{Binding GoToAnalyzerSettingsStepCommand}"/>
 
+        <Button Content="Create project"
+                Background="#222"
+                Foreground="#99C"
+                Padding="10, 5"
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Command="{Binding CreateProjectCommand}"/>
+
     </Grid>
 
 </UserControl>

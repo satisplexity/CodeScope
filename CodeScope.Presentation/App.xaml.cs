@@ -11,6 +11,7 @@ using CodeScope.Presentation.Features.Shell;
 using System.Windows;
 using CodeScope.Infrastructure.Persistence.Json;
 using CodeScope.Application.Projects.Abstractions;
+using CodeScope.Presentation.Framework.Services;
 
 namespace CodeScope.Presentation
 {
@@ -50,6 +51,8 @@ namespace CodeScope.Presentation
         {
             services.AddSingleton<IProjectRepository, JsonProjectRepository>();
             services.AddSingleton<ISnapshotRepository, JsonSnapshotRepository>();
+
+            services.AddScoped<CreateProjectService>();
 
             // Navigation stores
             services.AddSingleton<RootNavigationStore>();

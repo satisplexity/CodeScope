@@ -26,13 +26,13 @@ namespace CodeScope.Presentation.Framework.Navigation
             };
         }
 
-        public void NavigateTo<TViewModel>()
+        public async Task NavigateTo<TViewModel>()
             where TViewModel : ViewModelBase =>
-            _ = NavigateTo(typeof(TViewModel), null);
+            await NavigateTo(typeof(TViewModel), null);
 
-        public void NavigateTo<TViewModel, TParameter>(TParameter parameter)
+        public async Task NavigateTo<TViewModel, TParameter>(TParameter parameter)
             where TViewModel : ViewModelBase =>
-            _ =NavigateTo(typeof(TViewModel), parameter);
+            await NavigateTo(typeof(TViewModel), parameter);
 
         private async Task NavigateTo(Type viewModelType, object? parameter)
         {

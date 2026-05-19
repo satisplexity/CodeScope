@@ -1,13 +1,14 @@
-﻿using CodeScope.Presentation.Framework.Navigation.Abstractions;
-using CodeScope.Presentation.Features.ProjectWorkspace;
-using CodeScope.Presentation.Features.CreateProject;
-using CodeScope.Presentation.Framework.Foundation;
-using CodeScope.Presentation.Features.Settings;
-using CodeScope.Presentation.Features.Archive;
-using System.Windows;
-using System.Collections.ObjectModel;
+﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
-using CodeScope.Application.Projects.Abstractions;
+using CodeScope.Presentation.Features.Archive;
+using CodeScope.Presentation.Features.CreateProject;
+using CodeScope.Presentation.Features.ProjectWorkspace;
+using CodeScope.Presentation.Features.Settings;
+using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Framework.Navigation.Root;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
@@ -22,6 +23,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         public ObservableCollection<Project> Projects { get; } = new();
 
         private readonly IProjectRepository _repository;
+        private readonly IRootNavigationService _navigation;
 
         private Project _selectedProject;
 
@@ -31,19 +33,20 @@ namespace CodeScope.Presentation.Features.ProjectsHub
             set => SetProperty(ref _selectedProject, value);
         }
 
-        public ProjectsHubViewModel(IRootNavigationService rootNavigationService, IProjectRepository repository)
+        public ProjectsHubViewModel(IRootNavigationService navigation, IProjectRepository repository)
         {
+            _navigation = navigation;
             _repository = repository;
 
-            OpenArchiveCommand = new(rootNavigationService.NavigateTo<ArchiveViewModel>);
+            OpenArchiveCommand = new(navigation.NavigateTo<ArchiveViewModel>);
 
-            OpenSettingsCommand = new(rootNavigationService.NavigateTo<SettingsViewModel>);
+            OpenSettingsCommand = new(navigation.NavigateTo<SettingsViewModel>);
 
             ArchiveProjectCommand = new(() => MessageBox.Show("ARHIVE PROJECT"));
 
-            OpenCreateProjectCommand = new(rootNavigationService.NavigateTo<CreateProjectViewModel>);
+            OpenCreateProjectCommand = new(navigation.NavigateTo<CreateProjectViewModel>);
 
-            OpenProjectWorkspaceCommand = new(rootNavigationService.NavigateTo<ProjectWorkspaceViewModel>);
+            OpenProjectWorkspaceCommand = new(navigation.NavigateTo<ProjectWorkspaceViewModel>);
         }
 
         public async Task InitializeAsync()
@@ -54,6 +57,11 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             foreach(Project project in projects)
                 Projects.Add(project);
+        }
+
+        public void OpenProjectWorkspace()
+        {
+
         }
     }
 }

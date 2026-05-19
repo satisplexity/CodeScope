@@ -6,10 +6,10 @@ namespace CodeScope.Presentation.Framework.Navigation.Abstractions
     {
         ViewModelBase? CurrentViewModel { get; }
 
-        void NavigateTo<TViewModel>()
+        Task NavigateTo<TViewModel>()
             where TViewModel : ViewModelBase;
 
-        void NavigateTo<TViewModel, TParameter>(TParameter parameter)
+        Task NavigateTo<TViewModel, TParameter>(TParameter parameter)
             where TViewModel : ViewModelBase;
 
         bool CanGoBack { get; }

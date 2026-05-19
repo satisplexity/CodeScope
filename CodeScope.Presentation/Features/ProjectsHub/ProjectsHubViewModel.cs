@@ -5,9 +5,9 @@ using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Presentation.Features.Settings;
 using CodeScope.Presentation.Features.Archive;
 using System.Windows;
-using CodeScope.Infrastructure.Persistence.Json;
 using System.Collections.ObjectModel;
 using CodeScope.Domain.Projects;
+using CodeScope.Application.Projects.Abstractions;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
@@ -19,13 +19,14 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         public RelayCommand OpenCreateProjectCommand { get; }
         public RelayCommand OpenProjectWorkspaceCommand { get; }
 
-        public ObservableCollection<Project> Projects { get; private set; }
+        public ObservableCollection<Project> Projects { get; } = new();
 
-        private readonly JsonProjectRepository _repository;
+        private readonly IProjectRepository _repository;
 
-
-        public ProjectsHubViewModel(IRootNavigationService rootNavigationService, JsonProjectRepository repository)
+        public ProjectsHubViewModel(IRootNavigationService rootNavigationService, IProjectRepository repository)
         {
+            _repository = repository;
+
             OpenArchiveCommand = new(rootNavigationService.NavigateTo<ArchiveViewModel>);
 
             OpenSettingsCommand = new(rootNavigationService.NavigateTo<SettingsViewModel>);

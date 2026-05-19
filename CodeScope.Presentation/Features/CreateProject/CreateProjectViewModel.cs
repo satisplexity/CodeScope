@@ -22,16 +22,18 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         private readonly ViewModelBase[] _steps;
 
+        private readonly CreateProjectDraft _draft = new CreateProjectDraft();
+
         public CreateProjectViewModel(IRootNavigationService navigation)
         {
             GoBackCommand = new(navigation.GoBack);
 
             _steps = new ViewModelBase[]
             {
-                new GeneralInfoStepViewModel(GoToNextStep),
-                new AnalyzerSettingsStepViewModel(GoToNextStep, GoToPreviousStep),
-                new AutomationStepViewModel(GoToNextStep, GoToPreviousStep),
-                new CustomizationStepViewModel(GoToPreviousStep)
+                new GeneralInfoStepViewModel(_draft, GoToNextStep),
+                new AnalyzerSettingsStepViewModel(_draft, GoToNextStep, GoToPreviousStep),
+                new AutomationStepViewModel(_draft, GoToNextStep, GoToPreviousStep),
+                new CustomizationStepViewModel(_draft, GoToPreviousStep, CreateProject)
             };
 
             CurrentStep = _steps[0];
@@ -42,5 +44,11 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         public void GoToPreviousStep() =>
             CurrentStep = _steps[--_currentStepIndex];
+
+        public void CreateProject()
+        {
+            // CREATE PROJECT
+            // NAVIGATE TO WORKSPACE
+        }
     }
 }

@@ -2,13 +2,20 @@
 
 namespace CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep
 {
-    public class CustomizationStepViewModel : ViewModelBase
+    public sealed class CustomizationStepViewModel : ViewModelBase
     {
         public RelayCommand GoToAutomationStepCommand { get; }
         
-        public CustomizationStepViewModel(Action goToNextStepAction)
+        public RelayCommand CreateProjectCommand { get; }
+
+        private readonly CreateProjectDraft _draft;
+
+        public CustomizationStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Action createProjectAction)
         {
+            _draft = draft;
+
             GoToAutomationStepCommand = new(goToNextStepAction);
+            CreateProjectCommand = new(createProjectAction);
         }
     }
 }

@@ -2,12 +2,16 @@
 
 namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 {
-    public class GeneralInfoStepViewModel : ViewModelBase
+    public sealed class GeneralInfoStepViewModel : ViewModelBase
     {
         public RelayCommand GoToAnalyzerSettingStepCommand { get; }
 
-        public GeneralInfoStepViewModel(Action goToNextStepAction)
+        private readonly CreateProjectDraft _draft;
+
+        public GeneralInfoStepViewModel(CreateProjectDraft draft, Action goToNextStepAction)
         {
+            _draft = draft;
+
             GoToAnalyzerSettingStepCommand = new(goToNextStepAction);
         }
     }

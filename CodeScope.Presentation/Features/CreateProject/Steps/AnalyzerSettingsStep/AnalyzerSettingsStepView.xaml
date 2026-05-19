@@ -62,7 +62,8 @@
                                     Background="#222"
                                     Foreground="Gray"
                                     Padding="10, 5"
-                                    Command="{Binding DataContext.RemoveExtensionCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+                                    Command="{Binding DataContext.RemoveExtensionCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"/>
 
                         </StackPanel>
 
@@ -122,7 +123,8 @@ Command="{Binding SelectIgnoredDirectoryCommand}"/>
                         Background="#222"
                         Foreground="Gray"
                         Padding="10, 5"
-                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"/>
 
                         </StackPanel>
 
@@ -184,7 +186,8 @@ Command="{Binding SelectIgnoredFileCommand}"/>
                         Background="#222"
                         Foreground="Gray"
                         Padding="10, 5"
-                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+                        Command="{Binding DataContext.RemoveIgnoredFileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"/>
 
                         </StackPanel>
 

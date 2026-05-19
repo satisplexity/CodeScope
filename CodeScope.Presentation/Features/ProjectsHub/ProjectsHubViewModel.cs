@@ -23,6 +23,14 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
         private readonly IProjectRepository _repository;
 
+        private Project _selectedProject;
+
+        public Project SelectedProject
+        {
+            get => _selectedProject;
+            set => SetProperty(ref _selectedProject, value);
+        }
+
         public ProjectsHubViewModel(IRootNavigationService rootNavigationService, IProjectRepository repository)
         {
             _repository = repository;

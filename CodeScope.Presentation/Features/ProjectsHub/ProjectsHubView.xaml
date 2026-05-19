@@ -20,7 +20,8 @@
 
         <ListBox ItemsSource="{Binding Projects}"
                  Grid.Row="1"
-                 Background="Transparent">
+                 Background="Transparent"
+                 SelectedItem="{Binding SelectedProject}">
             <ListBox.ItemTemplate>
 
                 <DataTemplate>

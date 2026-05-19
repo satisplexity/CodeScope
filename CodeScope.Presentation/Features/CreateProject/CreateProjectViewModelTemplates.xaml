@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:generalInfoStep="clr-namespace:CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep"
                     xmlns:analyzerSettingsStep="clr-namespace:CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsStep"
-                    xmlns:automationStep="clr-namespace:CodeScope.Presentation.Features.CreateProject.Steps.AutomationStep"
                     xmlns:customizationStep="clr-namespace:CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep">
 
     <DataTemplate DataType="{x:Type generalInfoStep:GeneralInfoStepViewModel}">
@@ -14,12 +13,6 @@
     <DataTemplate DataType="{x:Type analyzerSettingsStep:AnalyzerSettingsStepViewModel}">
 
         <analyzerSettingsStep:AnalyzerSettingsStepView/>
-
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type automationStep:AutomationStepViewModel}">
-
-        <automationStep:AutomationStepView/>
 
     </DataTemplate>
 

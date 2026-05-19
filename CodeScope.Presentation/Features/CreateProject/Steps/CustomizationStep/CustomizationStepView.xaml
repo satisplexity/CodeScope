@@ -18,13 +18,13 @@
                    FontWeight="DemiBold"
                    Foreground="#99C"/>
 
-        <Button Content="Automation"
+        <Button Content="Analyzator settins"
                 Background="#222"
                 Foreground="#99C"
                 Padding="10, 5"
                 Grid.Row="2"
                 HorizontalAlignment="Left"
-                Command="{Binding GoToAutomationStepCommand}"/>
+                Command="{Binding GoToAnalyzerSettingsStepCommand}"/>
 
     </Grid>
 

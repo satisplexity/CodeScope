@@ -5,7 +5,7 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
 {
     public sealed class AnalyzerSettingsStepViewModel : ViewModelBase
     {
-        public RelayCommand GoToAutomationStepCommand { get; }
+        public RelayCommand GoToCustomizationStepCommand { get; }
 
         public RelayCommand GoToGeneralInfoStepCommand { get; }
 
@@ -52,7 +52,7 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
         {
             Draft = draft;
 
-            GoToAutomationStepCommand = new(goToNextStepAction);
+            GoToCustomizationStepCommand = new(goToNextStepAction);
             GoToGeneralInfoStepCommand = new(goToPreviosStepAction);
 
             AddExtensionCommand = new(AddExtension);

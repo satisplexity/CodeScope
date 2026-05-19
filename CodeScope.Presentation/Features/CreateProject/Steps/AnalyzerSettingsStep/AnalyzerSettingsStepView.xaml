@@ -204,13 +204,13 @@ Command="{Binding SelectIgnoredFileCommand}"/>
                 HorizontalAlignment="Left"
                 Command="{Binding GoToGeneralInfoStepCommand}"/>
         
-        <Button Content="Automation"
+        <Button Content="Customization"
                 Background="#222"
                 Foreground="#99C"
                 Padding="10, 5"
                 Grid.Row="2"
                 HorizontalAlignment="Right"
-                Command="{Binding GoToAutomationStepCommand}"/>
+                Command="{Binding GoToCustomizationStepCommand}"/>
 
     </Grid>
 

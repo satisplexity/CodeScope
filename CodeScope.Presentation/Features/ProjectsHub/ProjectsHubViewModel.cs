@@ -45,7 +45,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             OpenCreateProjectCommand = new(navigation.NavigateTo<CreateProjectViewModel>);
 
-            OpenProjectWorkspaceCommand = new(navigation.NavigateTo<ProjectWorkspaceViewModel>);
+            OpenProjectWorkspaceCommand = new(OpenProjectWorkspace);
         }
 
         public async Task InitializeAsync()
@@ -58,9 +58,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
                 Projects.Add(project);
         }
 
-        public void OpenProjectWorkspace()
-        {
-
-        }
+        public async Task OpenProjectWorkspace() =>
+            await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(SelectedProject);
     }
 }

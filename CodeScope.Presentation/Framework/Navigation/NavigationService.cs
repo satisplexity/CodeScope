@@ -27,18 +27,14 @@ namespace CodeScope.Presentation.Framework.Navigation
         }
 
         public void NavigateTo<TViewModel>()
-            where TViewModel : ViewModelBase
-        {
-            NavigateTo(typeof(TViewModel), null);
-        }
+            where TViewModel : ViewModelBase =>
+            _ = NavigateTo(typeof(TViewModel), null);
 
         public void NavigateTo<TViewModel, TParameter>(TParameter parameter)
-            where TViewModel : ViewModelBase
-        {
-            NavigateTo(typeof(TViewModel), parameter);
-        }
+            where TViewModel : ViewModelBase =>
+            _ =NavigateTo(typeof(TViewModel), parameter);
 
-        private void NavigateTo(Type viewModelType, object? parameter)
+        private async Task NavigateTo(Type viewModelType, object? parameter)
         {
             if(_store.CurrentViewModel is not null)
                 _history.Push(_store.CurrentViewModel);
@@ -46,6 +42,9 @@ namespace CodeScope.Presentation.Framework.Navigation
             _store.CurrentViewModel = parameter is null
                 ? (ViewModelBase)_services.GetRequiredService(viewModelType)
                 : (ViewModelBase)ActivatorUtilities.CreateInstance(_services, viewModelType, parameter);
+
+            if (_store.CurrentViewModel is IAsyncInitializable asyncInitializable)
+                await asyncInitializable.InitializeAsync();
 
             OnPropertyChanged(nameof(CanGoBack));
         }
@@ -56,6 +55,7 @@ namespace CodeScope.Presentation.Framework.Navigation
                 return;
 
             _store.CurrentViewModel = _history.Pop();
+
             OnPropertyChanged(nameof(CanGoBack));
         }
     }

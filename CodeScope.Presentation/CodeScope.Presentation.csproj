@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CreateProject\Steps\AutomationStep\" />
     <Folder Include="Features\CreateProject\Steps\CustomizationStep\" />
     <Folder Include="Features\ProjectWorkspace\Features\ProjectAnalysis\" />
     <Folder Include="Features\ProjectWorkspace\Features\Snapshots\" />

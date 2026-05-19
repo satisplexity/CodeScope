@@ -35,7 +35,10 @@
                        FontWeight="DemiBold"/>
 
         </Grid>
-        
+
+        <ContentControl Grid.Row="1"
+                        Content="{Binding CurrentStep}"/>
+
     </Grid>
 
 </UserControl>

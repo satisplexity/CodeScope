@@ -28,21 +28,17 @@ namespace CodeScope.Presentation.Features.CreateProject
 
             _steps = new ViewModelBase[]
             {
-                new GeneralInfoStepViewModel(),
-                new AnalyzerSettingsStepViewModel(),
-                new AutomationStepViewModel(),
-                new CustomizationStepViewModel()
+                new GeneralInfoStepViewModel(GoToNextStep),
+                new AnalyzerSettingsStepViewModel(GoToNextStep, GoToPreviousStep),
+                new AutomationStepViewModel(GoToNextStep, GoToPreviousStep),
+                new CustomizationStepViewModel(GoToPreviousStep)
             };
         }
 
-        public void GoToNextStep()
-        {
+        public void GoToNextStep() =>
             CurrentStep = _steps[++_currentStepIndex];
-        }
 
-        public void GoToPreviousStep()
-        {
+        public void GoToPreviousStep() =>
             CurrentStep = _steps[--_currentStepIndex];
-        }
     }
 }

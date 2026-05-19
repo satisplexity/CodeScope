@@ -1,24 +1,23 @@
-﻿using CodeScope.Application.Projects.Abstractions;
-using CodeScope.Domain.Projects;
-using CodeScope.Presentation.Features.Archive;
-using CodeScope.Presentation.Features.CreateProject;
+﻿using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Features.ProjectWorkspace;
-using CodeScope.Presentation.Features.Settings;
+using CodeScope.Presentation.Features.CreateProject;
 using CodeScope.Presentation.Framework.Foundation;
-using CodeScope.Presentation.Framework.Navigation.Abstractions;
-using CodeScope.Presentation.Framework.Navigation.Root;
+using CodeScope.Application.Projects.Abstractions;
+using CodeScope.Presentation.Features.Settings;
+using CodeScope.Presentation.Features.Archive;
 using System.Collections.ObjectModel;
+using CodeScope.Domain.Projects;
 using System.Windows;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
     public sealed class ProjectsHubViewModel : ViewModelBase, IAsyncInitializable
     {
-        public RelayCommand OpenArchiveCommand { get; }
-        public RelayCommand OpenSettingsCommand { get; }
+        public AsyncRelayCommand OpenArchiveCommand { get; }
+        public AsyncRelayCommand OpenSettingsCommand { get; }
         public RelayCommand? ArchiveProjectCommand { get; }
-        public RelayCommand OpenCreateProjectCommand { get; }
-        public RelayCommand OpenProjectWorkspaceCommand { get; }
+        public AsyncRelayCommand OpenCreateProjectCommand { get; }
+        public AsyncRelayCommand OpenProjectWorkspaceCommand { get; }
 
         public ObservableCollection<Project> Projects { get; } = new();
 

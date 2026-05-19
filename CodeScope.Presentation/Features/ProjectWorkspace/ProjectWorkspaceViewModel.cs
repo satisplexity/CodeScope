@@ -7,7 +7,7 @@ namespace CodeScope.Presentation.Features.ProjectWorkspace
 {
     public sealed class ProjectWorkspaceViewModel : ViewModelBase
     {
-        public RelayCommand OpenProjectHubCommand { get; }
+        public AsyncRelayCommand OpenProjectHubCommand { get; }
 
         private readonly Project _project;
 

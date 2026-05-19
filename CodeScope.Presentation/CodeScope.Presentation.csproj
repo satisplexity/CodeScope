@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CreateProject\Sections\" />
+    <Folder Include="Features\CreateProject\Steps\GeneralInfoStep\" />
+    <Folder Include="Features\CreateProject\Steps\AnalyzerSettingsStep\" />
+    <Folder Include="Features\CreateProject\Steps\AutomationStep\" />
+    <Folder Include="Features\CreateProject\Steps\CustomizationStep\" />
     <Folder Include="Features\ProjectWorkspace\Features\ProjectAnalysis\" />
     <Folder Include="Features\ProjectWorkspace\Features\Snapshots\" />
     <Folder Include="Features\ProjectWorkspace\Features\ProjectSettings\" />

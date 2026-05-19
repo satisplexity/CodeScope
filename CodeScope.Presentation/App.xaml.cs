@@ -1,5 +1,4 @@
 ﻿using CodeScope.Presentation.Framework.Navigation.ProjectWorkspace;
-using CodeScope.Presentation.Framework.Navigation.CreateProject;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Framework.Navigation.Root;
 using CodeScope.Presentation.Features.ProjectWorkspace;
@@ -49,12 +48,10 @@ namespace CodeScope.Presentation
         {
             // Navigation stores
             services.AddSingleton<RootNavigationStore>();
-            services.AddSingleton<CreateProjectNavigationStore>();
             services.AddSingleton<ProjectWorkspaceNavigationStore>();
             
             // Navigation services
             services.AddSingleton<IRootNavigationService, RootNavigationService>();
-            services.AddSingleton<ICreateProjectNavigationService, CreateProjectNavigationService>();
             services.AddSingleton<IProjectWorkspaceNavigationService, ProjectWorkspaceNavigationService>();
             
             // Main window

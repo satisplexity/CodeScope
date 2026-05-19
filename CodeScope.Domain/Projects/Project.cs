@@ -12,6 +12,8 @@
 
         public string IconKey {  get; set; } = "Code";
 
+        public string ColotKey { get; set; } = "Default";
+
         public DateTime CreatedAt { get; set; }
 
         public List<string> IncludedExtensions { get; set; } = [];

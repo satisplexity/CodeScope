@@ -13,10 +13,10 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 
         public string ProjectName
         {
-            get => Draft.ProjectName;
+            get => Draft.Name;
             set
             {
-                Draft.ProjectName = value;
+                Draft.Name = value;
                 OnPropertyChanged();
             }
         }

@@ -118,6 +118,8 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
 
             if (!Draft.IgnoredFiles.Contains(file))
                 Draft.IgnoredFiles.Add(file);
+
+            NewIgnoredFile = string.Empty;
         }
 
         private void RemoveIngoredFile(object? parameter)

@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using CodeScope.Presentation.Features.Archive;
 using CodeScope.Presentation.Features.Shell;
 using System.Windows;
+using CodeScope.Infrastructure.Persistence.Json;
+using CodeScope.Application.Projects.Abstractions;
 
 namespace CodeScope.Presentation
 {
@@ -46,6 +48,9 @@ namespace CodeScope.Presentation
 
         private void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IProjectRepository, JsonProjectRepository>();
+            services.AddSingleton<ISnapshotRepository, JsonSnapshotRepository>();
+
             // Navigation stores
             services.AddSingleton<RootNavigationStore>();
             services.AddSingleton<ProjectWorkspaceNavigationStore>();

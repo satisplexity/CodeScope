@@ -14,12 +14,15 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 
         public RelayCommand RemoveExtensionCommand { get; }
 
-        public RelayCommand AddDirectoryIgnoringCommand { get; }
+        public RelayCommand AddIngnoredDirectoryCommand { get; }
 
-        public RelayCommand RemoveDirectoryIgnoringCommand { get; }
+        public RelayCommand RemoveIgnoredDirectoryCommand { get; }
 
-        public RelayCommand AddFileIgnoringCommand { get; }
-        public RelayCommand RemoveFileIgnoringCommand { get; }
+        public RelayCommand AddIgnoredFileCommand { get; }
+        public RelayCommand RemoveIgnoredFileCommand { get; }
+
+        public RelayCommand SelectIgnoredDirectoryCommand { get; }
+        public RelayCommand SelectIgnoredFileCommand { get; }
 
         public string ProjectName
         {
@@ -91,6 +94,18 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 
             GoToAnalyzerSettingStepCommand = new(goToNextStepAction);
             SelectRootPathCommand = new(SelectRootPath);
+
+            AddExtensionCommand = new(AddExtension);
+            RemoveExtensionCommand = new(RemoveExtension);
+
+            AddIngnoredDirectoryCommand = new(AddIngnoredDirectory);
+            RemoveIgnoredDirectoryCommand = new(RemoveIgnoredDirectory);
+
+            AddIgnoredFileCommand = new(AddIgnoredFile);
+            RemoveIgnoredFileCommand = new(RemoveIngoredFile);
+
+            SelectIgnoredDirectoryCommand = new(SelectIgnoredDirectory);
+            SelectIgnoredFileCommand = new(SelectIgnoredFile);
         }
 
         private void SelectRootPath()
@@ -161,6 +176,28 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
         {
             if(parameter is string file)
                 Draft.IgnoredFiles.Remove(file);
+        }
+
+        private void SelectIgnoredDirectory()
+        {
+            OpenFolderDialog dialog = new OpenFolderDialog();
+            dialog.Title = "Select ignored directory";
+
+            if (dialog.ShowDialog() == true)
+            {
+                NewIngnoredDirectory = dialog.FolderName;
+            }
+        }
+
+        private void SelectIgnoredFile()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Select ignored file";
+
+            if(dialog.ShowDialog() == true)
+            {
+                NewIgnoredFile = dialog.FileName;
+            }
         }
     }
 }

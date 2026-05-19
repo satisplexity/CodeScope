@@ -18,6 +18,16 @@
                    FontWeight="DemiBold"
                    Foreground="#99C"/>
 
+        <StackPanel Grid.Row="1">
+
+            <ToggleButton Content="Create snapshot on app open"
+                          IsChecked="{Binding CreateSnapShotOnAppOpen}"/>
+
+            <ToggleButton Content="Enale auto snapshot"
+                          IsChecked="{Binding AutoSnapShotEnabled}"/>
+
+        </StackPanel>
+        
         <Button Content="Analyzer settings"
                 Background="#222"
                 Foreground="Gray"

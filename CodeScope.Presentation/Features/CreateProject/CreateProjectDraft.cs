@@ -15,8 +15,8 @@ namespace CodeScope.Presentation.Features.CreateProject
         public ObservableCollection<string> IgnoredDirectories { get; } = [];
         public ObservableCollection<string> IgnoredFiles { get; } = [];
 
-        public bool CreateSnapshotOnAppOpen { get; set; }
-        public bool AutoSnapshotsEnabled { get; set; }
+        public bool CreateSnapshotOnAppOpen { get; set; } = false;
+        public bool AutoSnapshotsEnabled { get; set; } = false;
 
         public string ColorKey { get; set; } = "#Default";
         public string IconKey { get; set; } = "Code";

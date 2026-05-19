@@ -9,6 +9,26 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AutomationStep
 
         private readonly CreateProjectDraft _draft;
 
+        public bool CreateSnapshotOnAppOpen
+        {
+            get=> _draft.CreateSnapshotOnAppOpen;
+            set
+            {
+                _draft.CreateSnapshotOnAppOpen = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool AutoSnapshotEnabled
+        {
+            get => _draft.AutoSnapshotsEnabled;
+            set
+            {
+                _draft.AutoSnapshotsEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
         public AutomationStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Action goToPreviousStepAction)
         {
             _draft = draft;

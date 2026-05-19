@@ -4,12 +4,12 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AutomationStep
 {
     public class AutomationStepViewModel : ViewModelBase
     {
-        public RelayCommand GoToCusomizationStepCommand { get; }
+        public RelayCommand GoToCustomizationStepCommand { get; }
         public RelayCommand GoToAnalyzerSettingsStepCommand { get; }
 
         public AutomationStepViewModel(Action goToNextStepAction, Action goToPreviousStepAction)
         {
-            GoToCusomizationStepCommand = new(goToNextStepAction);
+            GoToCustomizationStepCommand = new(goToNextStepAction);
             GoToAnalyzerSettingsStepCommand = new(goToPreviousStepAction);
         }
     }

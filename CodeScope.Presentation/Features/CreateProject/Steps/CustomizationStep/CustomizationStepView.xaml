@@ -5,6 +5,27 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Customization"
+                   FontSize="20"
+                   FontWeight="DemiBold"
+                   Foreground="#99C"/>
+
+        <Button Content="Automation"
+                Background="#222"
+                Foreground="#99C"
+                Padding="10, 5"
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                Command="{Binding GoToAutomationStepCommand}"/>
+
     </Grid>
 
 </UserControl>

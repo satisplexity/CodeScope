@@ -33,6 +33,8 @@ namespace CodeScope.Presentation.Features.CreateProject
                 new AutomationStepViewModel(GoToNextStep, GoToPreviousStep),
                 new CustomizationStepViewModel(GoToPreviousStep)
             };
+
+            CurrentStep = _steps[0];
         }
 
         public void GoToNextStep() =>

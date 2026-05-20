@@ -10,15 +10,29 @@ namespace CodeScope.Presentation.Features.Archive
     {
         public RelayCommand GoBackCommand { get; }
 
+        public AsyncRelayCommand DeleteProjectCommand { get; }
+
+        public AsyncRelayCommand RestoreProjectCommand { get; }
+
         public ObservableCollection<Project> Projects { get; } = [];
 
         private readonly IProjectRepository _repository;
+
+        private Project? _selectedProject;
+        public Project? SelectedProject
+        {
+            get => _selectedProject;
+            set => SetProperty(ref _selectedProject, value);
+        }
 
         public ArchiveViewModel(IRootNavigationService navigation, IProjectRepository repository)
         {
             _repository = repository;
 
             GoBackCommand = new(navigation.GoBack);
+
+            DeleteProjectCommand = new(DeleteProject);
+            RestoreProjectCommand = new(RestoreProject);
         }
 
         public async Task InitializeAsync()
@@ -30,6 +44,28 @@ namespace CodeScope.Presentation.Features.Archive
             foreach (Project project in projects)
                 if (!project.IsArchived)
                     Projects.Add(project);
+        }
+
+        public async Task DeleteProject()
+        {
+            if (SelectedProject is null)
+                return;
+            
+            Projects.Remove(SelectedProject);
+            
+            await _repository.DeleteAsync(SelectedProject.Id);
+            await _repository.SaveChangesAsync();
+        }
+
+        public async Task RestoreProject()
+        {
+            if(SelectedProject is null)
+                return;
+
+            SelectedProject.IsArchived = false;
+            
+            Projects.Remove(SelectedProject);
+            await _repository.SaveChangesAsync();
         }
     }
 }

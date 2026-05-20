@@ -1,6 +1,6 @@
 ﻿using CodeScope.Application.Shared.Models;
 
-namespace CodeScope.Application.Snapshots.Models
+namespace CodeScope.Application.Analysis.Models
 {
     public class FileScanResultModel
     {

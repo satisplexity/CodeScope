@@ -2,8 +2,8 @@
 {
     public class ProjectScannerSettingsModel
     {
-        public IReadOnlyList<string> Extensions { get; set; } = [];
-        public IReadOnlyList<string> IgnoredFiles { get; set; } = [];
-        public IReadOnlyList<string> IgnoredDirectories { get; set; } = [];
+        public List<string> Extensions { get; set; } = [];
+        public List<string> IgnoredFiles { get; set; } = [];
+        public List<string> IgnoredDirectories { get; set; } = [];
     }
 }

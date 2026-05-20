@@ -1,4 +1,6 @@
 ﻿using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Application.Projects.Models;
+using System.Collections.ObjectModel;
 using Microsoft.Win32;
 
 namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsStep
@@ -6,15 +8,12 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
     public sealed class AnalyzerSettingsStepViewModel : ViewModelBase
     {
         public RelayCommand GoToCustomizationStepCommand { get; }
-
         public RelayCommand GoToGeneralInfoStepCommand { get; }
 
         public RelayCommand AddExtensionCommand { get; }
-
         public RelayCommand RemoveExtensionCommand { get; }
 
         public RelayCommand AddIngnoredDirectoryCommand { get; }
-
         public RelayCommand RemoveIgnoredDirectoryCommand { get; }
 
         public RelayCommand AddIgnoredFileCommand { get; }
@@ -31,7 +30,6 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
         }
 
         private string _newIgnoredDirectory = string.Empty;
-
         public string NewIngnoredDirectory
         {
             get => _newIgnoredDirectory;
@@ -39,18 +37,21 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
         }
 
         private string _newIgnoredFile = string.Empty;
-
         public string NewIgnoredFile
         {
             get => _newIgnoredFile;
             set => SetProperty(ref _newIgnoredFile, value);
         }
 
-        public CreateProjectDraft Draft { get; }
+        public ObservableCollection<string> Extensions { get; }
+        public ObservableCollection<string> IgnoredFiles { get; }
+        public ObservableCollection<string> IgnoredDirectories { get; }
 
-        public AnalyzerSettingsStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Action goToPreviosStepAction)
+        private readonly CreateProjectDraftModel _draft;
+
+        public AnalyzerSettingsStepViewModel(CreateProjectDraftModel draft, Action goToNextStepAction, Action goToPreviosStepAction)
         {
-            Draft = draft;
+            _draft = draft;
 
             GoToCustomizationStepCommand = new(goToNextStepAction);
             GoToGeneralInfoStepCommand = new(goToPreviosStepAction);
@@ -66,6 +67,10 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
 
             SelectIgnoredDirectoryCommand = new(SelectIgnoredDirectory);
             SelectIgnoredFileCommand = new(SelectIgnoredFile);
+
+            Extensions = new ObservableCollection<string>(draft.Extensions);
+            IgnoredFiles = new ObservableCollection<string>(draft.IgnoredFiles);
+            IgnoredDirectories = new ObservableCollection<string>(draft.IgnoredDirectories);
         }
 
         private void AddExtension()
@@ -78,16 +83,22 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
             if (!extension.StartsWith("."))
                 extension = "." + extension;
 
-            if (!Draft.IncludedExtensions.Contains(extension))
-                Draft.IncludedExtensions.Add(extension);
-
+            if (!Extensions.Contains(extension))
+            {
+                Extensions.Add(extension);
+                _draft.Extensions = Extensions.ToList();
+            }
+                
             NewExtension = string.Empty;
         }
 
         private void RemoveExtension(object? parameter)
         {
             if (parameter is string extension)
-                Draft.IncludedExtensions.Remove(extension);
+            {
+                Extensions.Remove(extension);
+                _draft.Extensions = Extensions.ToList();
+            }
         }
 
         private void AddIngnoredDirectory()
@@ -97,16 +108,22 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
             if (string.IsNullOrWhiteSpace(directory))
                 return;
 
-            if (!Draft.IgnoredDirectories.Contains(directory))
-                Draft.IgnoredDirectories.Add(directory);
-
+            if (!IgnoredDirectories.Contains(directory))
+            {
+                IgnoredDirectories.Add(directory);
+                _draft.IgnoredDirectories = IgnoredDirectories.ToList();
+            }
+                
             NewIngnoredDirectory = string.Empty;
         }
 
         private void RemoveIgnoredDirectory(object? parameter)
         {
             if (parameter is string directory)
-                Draft.IgnoredDirectories.Remove(directory);
+            {
+                IgnoredDirectories.Remove(directory);
+                _draft.IgnoredDirectories = IgnoredDirectories.ToList();
+            }  
         }
 
         private void AddIgnoredFile()
@@ -116,8 +133,11 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
             if (string.IsNullOrWhiteSpace(file))
                 return;
 
-            if (!Draft.IgnoredFiles.Contains(file))
-                Draft.IgnoredFiles.Add(file);
+            if (!_draft.IgnoredFiles.Contains(file))
+            {
+                IgnoredFiles.Add(file);
+                _draft.IgnoredFiles = IgnoredFiles.ToList();
+            }  
 
             NewIgnoredFile = string.Empty;
         }
@@ -125,7 +145,10 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsSt
         private void RemoveIngoredFile(object? parameter)
         {
             if (parameter is string file)
-                Draft.IgnoredFiles.Remove(file);
+            {
+                IgnoredFiles.Remove(file);
+                _draft.IgnoredFiles = IgnoredFiles.ToList();
+            }
         }
 
         private void SelectIgnoredDirectory()

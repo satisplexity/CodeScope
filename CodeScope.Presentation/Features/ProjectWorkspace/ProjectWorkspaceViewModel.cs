@@ -4,7 +4,7 @@ using CodeScope.Presentation.Features.ProjectWorkspace.Features.Snapshots;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Presentation.Features.ProjectsHub;
-using CodeScope.Domain.Projects.Entities;
+using CodeScope.Application.Projects.Models;
 
 namespace CodeScope.Presentation.Features.ProjectWorkspace
 {
@@ -12,7 +12,7 @@ namespace CodeScope.Presentation.Features.ProjectWorkspace
     {
         public AsyncRelayCommand OpenProjectHubCommand { get; }
 
-        public Project Project { get;  }
+        public ProjectModel Project { get;  }
 
         public IProjectWorkspaceNavigationService WorkspaceNavigation { get; }
 
@@ -25,7 +25,7 @@ namespace CodeScope.Presentation.Features.ProjectWorkspace
         public ProjectWorkspaceViewModel(
             IRootNavigationService rootNavigation,
             IProjectWorkspaceNavigationService workspaceNavigation,
-            Project project)
+            ProjectModel project)
         {
             Project = project;
             WorkspaceNavigation = workspaceNavigation;

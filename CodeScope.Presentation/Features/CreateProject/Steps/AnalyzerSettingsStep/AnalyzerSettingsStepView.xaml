@@ -45,7 +45,7 @@
 
             </Grid>
 
-            <ItemsControl ItemsSource="{Binding Draft.IncludedExtensions}">
+            <ItemsControl ItemsSource="{Binding Extensions}">
 
                 <ItemsControl.ItemTemplate>
 
@@ -106,7 +106,7 @@ Command="{Binding SelectIgnoredDirectoryCommand}"/>
 
             </Grid>
 
-            <ItemsControl ItemsSource="{Binding Draft.IgnoredDirectories}">
+            <ItemsControl ItemsSource="{Binding IgnoredDirectories}">
 
                 <ItemsControl.ItemTemplate>
 
@@ -169,7 +169,7 @@ Command="{Binding SelectIgnoredFileCommand}"/>
 
             </Grid>
 
-            <ItemsControl ItemsSource="{Binding Draft.IgnoredFiles}">
+            <ItemsControl ItemsSource="{Binding IgnoredFiles}">
 
                 <ItemsControl.ItemTemplate>
 

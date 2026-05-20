@@ -5,8 +5,9 @@ using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Presentation.Features.Settings;
 using CodeScope.Presentation.Features.Archive;
+using CodeScope.Application.Projects.Models;
+using CodeScope.Application.Projects.Mappers;
 using System.Collections.ObjectModel;
-using CodeScope.Domain.Projects.Entities;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
@@ -18,14 +19,14 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         public AsyncRelayCommand OpenCreateProjectCommand { get; }
         public AsyncRelayCommand OpenProjectWorkspaceCommand { get; }
 
-        public ObservableCollection<Project> Projects { get; } = new();
+        public ObservableCollection<ProjectModel> Projects { get; } = new();
 
         private readonly IProjectRepository _repository;
         private readonly IRootNavigationService _navigation;
 
-        private Project? _selectedProject;
+        private ProjectModel? _selectedProject;
 
-        public Project? SelectedProject
+        public ProjectModel? SelectedProject
         {
             get => _selectedProject;
             set => SetProperty(ref _selectedProject, value);
@@ -49,11 +50,11 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
         public async Task InitializeAsync()
         {
-            List<Project> projects = await _repository.GetAllProjectsAsync();
+            List<ProjectModel> projects = ProjectMapper.ToModel(await _repository.GetAllProjectsAsync());
 
             Projects.Clear();
 
-            foreach (Project project in projects)
+            foreach (ProjectModel project in projects)
                 if(!project.IsArchived)
                     Projects.Add(project);
         }
@@ -72,7 +73,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         {
             if (SelectedProject is null) return;
 
-            await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(SelectedProject);
+            await _navigation.NavigateTo<ProjectWorkspaceViewModel, ProjectModel>(SelectedProject);
         }
     }
 }

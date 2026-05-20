@@ -4,8 +4,8 @@ using CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Features.ProjectWorkspace;
 using CodeScope.Presentation.Framework.Foundation;
-using CodeScope.Presentation.Framework.Services;
-using CodeScope.Domain.Projects.Entities;
+using CodeScope.Application.Projects.Services;
+using CodeScope.Application.Projects.Models;
 
 namespace CodeScope.Presentation.Features.CreateProject
 {
@@ -24,7 +24,7 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         private readonly ViewModelBase[] _steps;
 
-        private readonly CreateProjectDraft _draft = new CreateProjectDraft();
+        private readonly CreateProjectDraftModel _draft = new CreateProjectDraftModel();
 
         private readonly CreateProjectService _createProjectService;
 
@@ -55,9 +55,9 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         public async Task CreateProject()
         {
-            Project project = await _createProjectService.ExecuteAsync(_draft);
+            ProjectModel project = await _createProjectService.ExecuteAsync(_draft);
 
-            await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(project);
+            await _navigation.NavigateTo<ProjectWorkspaceViewModel, ProjectModel>(project);
         }
     }
 }

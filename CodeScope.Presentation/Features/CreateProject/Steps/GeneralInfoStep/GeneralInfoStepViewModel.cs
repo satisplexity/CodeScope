@@ -1,4 +1,5 @@
 ﻿using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Application.Projects.Models;
 using Microsoft.Win32;
 using System.IO;
 
@@ -10,38 +11,37 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
 
         public RelayCommand SelectRootPathCommand { get; }
 
-
         public string ProjectName
         {
-            get => Draft.Name;
+            get => _draft.Name;
             set
             {
-                Draft.Name = value;
+                _draft.Name = value;
                 _projectNameHasBeenChanged = true;
                 OnPropertyChanged();
             }
         }
 
-        public string? ProjectDescription
+        public string ProjectDescription
         {
-            get => Draft.Description;
+            get => _draft.Description;
             set
             {
-                Draft.Description = value;
+                _draft.Description = value;
                 OnPropertyChanged();
             }
         }
 
         public string RootPath
         {
-            get => Draft.RootPath;
+            get => _draft.RootPath;
             set
             {
-                Draft.RootPath = value;
+                _draft.RootPath = value;
 
                 if (!_projectNameHasBeenChanged)
                 {
-                    Draft.Name = new DirectoryInfo(value).Name;
+                    _draft.Name = new DirectoryInfo(value).Name;
                     OnPropertyChanged(nameof(ProjectName));
                 }
 
@@ -49,15 +49,13 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep
             }
         }
 
-
         private bool _projectNameHasBeenChanged = false;
 
-        public CreateProjectDraft Draft { get; }
+        private readonly CreateProjectDraftModel _draft;
 
-
-        public GeneralInfoStepViewModel(CreateProjectDraft draft, Action goToNextStepAction)
+        public GeneralInfoStepViewModel(CreateProjectDraftModel draft, Action goToNextStepAction)
         {
-            Draft = draft;
+            _draft = draft;
 
             GoToAnalyzerSettingStepCommand = new(goToNextStepAction);
             SelectRootPathCommand = new(SelectRootPath);

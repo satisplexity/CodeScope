@@ -10,10 +10,10 @@ using CodeScope.Application.Snapshots.Abstractions;
 using CodeScope.Presentation.Features.ProjectsHub;
 using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Infrastructure.Persistence.Json;
-using CodeScope.Presentation.Framework.Services;
 using CodeScope.Presentation.Features.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using CodeScope.Presentation.Features.Archive;
+using CodeScope.Application.Projects.Services;
 using CodeScope.Presentation.Features.Shell;
 using System.Windows;
 

@@ -1,4 +1,5 @@
 ﻿using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Application.Projects.Models;
 
 namespace CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep
 {
@@ -8,9 +9,9 @@ namespace CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep
         
         public AsyncRelayCommand CreateProjectCommand { get; }
 
-        private readonly CreateProjectDraft _draft;
+        private readonly CreateProjectDraftModel _draft;
 
-        public CustomizationStepViewModel(CreateProjectDraft draft, Action goToNextStepAction, Func<Task> createProjectAction)
+        public CustomizationStepViewModel(CreateProjectDraftModel draft, Action goToNextStepAction, Func<Task> createProjectAction)
         {
             _draft = draft;
 

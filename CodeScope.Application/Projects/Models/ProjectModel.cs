@@ -8,14 +8,14 @@ namespace CodeScope.Application.Projects.Models
 
         public string Name { get; set; } = string.Empty;
         public string RootPath { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
 
         
         public DateTime CreatedAt { get; set; }
         public DateTime LastActivityAt { get; set; }
-        public DateTime LastScanAt { get; set; }
+        public DateTime? LastScanAt { get; set; }
 
-        public ProjectScannerSettingsModel ScanerSettings { get; set; } = new();
+        public ProjectScannerSettingsModel ScannerSettings { get; set; } = new();
 
         public string IconKey { get; set; } = string.Empty;
         public string ColorKey { get; set; } = string.Empty;

@@ -14,7 +14,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
     {
         public AsyncRelayCommand OpenArchiveCommand { get; }
         public AsyncRelayCommand OpenSettingsCommand { get; }
-        public RelayCommand? ArchiveProjectCommand { get; }
+        public AsyncRelayCommand ArchiveProjectCommand { get; }
         public AsyncRelayCommand OpenCreateProjectCommand { get; }
         public AsyncRelayCommand OpenProjectWorkspaceCommand { get; }
 
@@ -58,7 +58,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
                     Projects.Add(project);
         }
 
-        public void ArchiveProject()
+        public async Task ArchiveProject()
         {
             if (SelectedProject is null)
                 return;
@@ -66,6 +66,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
             SelectedProject.IsArchived = true;
 
             Projects.Remove(SelectedProject);
+            await _repository.SaveChangesAsync();
         }
 
         public async Task OpenProjectWorkspace() =>

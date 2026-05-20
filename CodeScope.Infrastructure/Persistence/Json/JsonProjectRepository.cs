@@ -38,6 +38,8 @@ namespace CodeScope.Infrastructure.Persistence.Json
             await LoadAsync();
 
             _projects.Add(project);
+
+            await SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid id)
@@ -50,6 +52,8 @@ namespace CodeScope.Infrastructure.Persistence.Json
             {
                 _projects.Remove(project);
             }
+
+            await SaveChangesAsync();
         }
 
         public async Task ArchiveAsync(Guid id)
@@ -60,6 +64,8 @@ namespace CodeScope.Infrastructure.Persistence.Json
 
             if(project is not null)
                 project.IsArchived = true;
+
+            await SaveChangesAsync();
         }
 
         public async Task RestoreAsync(Guid id)
@@ -70,6 +76,8 @@ namespace CodeScope.Infrastructure.Persistence.Json
 
             if(project is not null)
                 project.IsArchived = false;
+
+            await SaveChangesAsync();
         }
 
         public async Task SaveChangesAsync()

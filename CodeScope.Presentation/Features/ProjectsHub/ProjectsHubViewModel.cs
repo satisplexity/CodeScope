@@ -62,14 +62,17 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         {
             if (SelectedProject is null)
                 return;
-            
-            SelectedProject.IsArchived = true;
+
+            await _repository.ArchiveAsync(SelectedProject.Id);
 
             Projects.Remove(SelectedProject);
-            await _repository.SaveChangesAsync();
         }
 
-        public async Task OpenProjectWorkspace() =>
+        public async Task OpenProjectWorkspace()
+        {
+            if (SelectedProject is null) return;
+
             await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(SelectedProject);
+        }
     }
 }

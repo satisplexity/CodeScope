@@ -54,8 +54,9 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             Projects.Clear();
 
-            foreach(Project project in projects)
-                Projects.Add(project);
+            foreach (Project project in projects)
+                if(!project.IsArchived)
+                    Projects.Add(project);
         }
 
         public async Task OpenProjectWorkspace() =>

@@ -42,7 +42,7 @@ namespace CodeScope.Presentation.Features.Archive
             Projects.Clear();
 
             foreach (Project project in projects)
-                if (!project.IsArchived)
+                if (project.IsArchived)
                     Projects.Add(project);
         }
 

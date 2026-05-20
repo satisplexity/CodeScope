@@ -80,4 +80,11 @@ The goal of the project is to provide developers with a lightweight but powerful
 - Snapshot-based domain model
 
 ---
-
+# Milestones
+### ✅ Milestone: Project Management
+Implemented:
+- Project hub
+- Project creation workflow
+- Archive/restore logic
+- Navigation service
+- ViewModel history stack

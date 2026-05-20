@@ -11,7 +11,7 @@ namespace CodeScope.Presentation.Features.CreateProject
 {
     public sealed class CreateProjectViewModel : ViewModelBase
     {
-        public RelayCommand GoBackCommand { get; }
+        public AsyncRelayCommand GoBackCommand { get; }
 
         private ViewModelBase? _currentStep;
         public ViewModelBase? CurrentStep

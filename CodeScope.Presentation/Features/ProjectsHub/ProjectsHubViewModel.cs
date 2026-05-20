@@ -7,7 +7,6 @@ using CodeScope.Presentation.Features.Settings;
 using CodeScope.Presentation.Features.Archive;
 using System.Collections.ObjectModel;
 using CodeScope.Domain.Projects;
-using System.Windows;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
@@ -15,7 +14,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
     {
         public AsyncRelayCommand OpenArchiveCommand { get; }
         public AsyncRelayCommand OpenSettingsCommand { get; }
-        public RelayCommand? ArchiveProjectCommand { get; }
+        public AsyncRelayCommand ArchiveProjectCommand { get; }
         public AsyncRelayCommand OpenCreateProjectCommand { get; }
         public AsyncRelayCommand OpenProjectWorkspaceCommand { get; }
 
@@ -24,9 +23,9 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         private readonly IProjectRepository _repository;
         private readonly IRootNavigationService _navigation;
 
-        private Project _selectedProject;
+        private Project? _selectedProject;
 
-        public Project SelectedProject
+        public Project? SelectedProject
         {
             get => _selectedProject;
             set => SetProperty(ref _selectedProject, value);
@@ -41,7 +40,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             OpenSettingsCommand = new(navigation.NavigateTo<SettingsViewModel>);
 
-            ArchiveProjectCommand = new(() => MessageBox.Show("ARHIVE PROJECT"));
+            ArchiveProjectCommand = new(ArchiveProject);
 
             OpenCreateProjectCommand = new(navigation.NavigateTo<CreateProjectViewModel>);
 
@@ -54,11 +53,26 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             Projects.Clear();
 
-            foreach(Project project in projects)
-                Projects.Add(project);
+            foreach (Project project in projects)
+                if(!project.IsArchived)
+                    Projects.Add(project);
         }
 
-        public async Task OpenProjectWorkspace() =>
+        public async Task ArchiveProject()
+        {
+            if (SelectedProject is null)
+                return;
+
+            await _repository.ArchiveAsync(SelectedProject.Id);
+
+            Projects.Remove(SelectedProject);
+        }
+
+        public async Task OpenProjectWorkspace()
+        {
+            if (SelectedProject is null) return;
+
             await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(SelectedProject);
+        }
     }
 }

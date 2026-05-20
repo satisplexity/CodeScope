@@ -21,5 +21,7 @@
         public List<string> IgnoredDirectories { get; set; } = [];
 
         public List<string> IgnoredFiles { get; set; } = [];
+
+        public bool IsArchived { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿using System.Text.Json;
-using CodeScope.Application.Projects.Abstractions;
+﻿using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Domain.Projects;
+using System.Text.Json;
 
 namespace CodeScope.Infrastructure.Persistence.Json
 {
@@ -38,18 +38,46 @@ namespace CodeScope.Infrastructure.Persistence.Json
             await LoadAsync();
 
             _projects.Add(project);
+
+            await SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid id)
         {
             await LoadAsync();
 
-            Project? project = _projects.FirstOrDefault(p => p.Id == id);
+            Project? project = GetProject(id);
 
             if (project is not null)
             {
                 _projects.Remove(project);
             }
+
+            await SaveChangesAsync();
+        }
+
+        public async Task ArchiveAsync(Guid id)
+        {
+            await LoadAsync();
+
+            Project? project = GetProject(id);
+
+            if(project is not null)
+                project.IsArchived = true;
+
+            await SaveChangesAsync();
+        }
+
+        public async Task RestoreAsync(Guid id)
+        {
+            await LoadAsync();
+
+            Project? project = GetProject(id);
+
+            if(project is not null)
+                project.IsArchived = false;
+
+            await SaveChangesAsync();
         }
 
         public async Task SaveChangesAsync()
@@ -77,5 +105,8 @@ namespace CodeScope.Infrastructure.Persistence.Json
 
             _projects = JsonSerializer.Deserialize<List<Project>>(json) ?? [];
         }
+
+        private Project? GetProject(Guid id) =>
+            _projects.FirstOrDefault(project => project.Id == id);
     }
 }

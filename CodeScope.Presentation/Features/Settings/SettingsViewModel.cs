@@ -5,7 +5,7 @@ namespace CodeScope.Presentation.Features.Settings
 {
     public sealed class SettingsViewModel : ViewModelBase
     {
-        public RelayCommand GoBackCommand { get; }
+        public AsyncRelayCommand GoBackCommand { get; }
         
         public SettingsViewModel(IRootNavigationService navigation)
         {

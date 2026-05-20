@@ -51,10 +51,10 @@ namespace CodeScope.Presentation.Features.Archive
             if (SelectedProject is null)
                 return;
             
-            Projects.Remove(SelectedProject);
-            
             await _repository.DeleteAsync(SelectedProject.Id);
             await _repository.SaveChangesAsync();
+            
+            Projects.Remove(SelectedProject);
         }
 
         public async Task RestoreProject()

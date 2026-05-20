@@ -10,6 +10,10 @@ namespace CodeScope.Application.Projects.Abstractions
         
         Task AddAsync(Project project);
 
+        Task ArchiveAsync(Guid id);
+
+        Task RestoreAsync(Guid id);
+
         Task DeleteAsync(Guid id);
 
         Task SaveChangesAsync();

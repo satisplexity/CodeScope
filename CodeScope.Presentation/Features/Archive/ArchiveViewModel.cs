@@ -52,7 +52,6 @@ namespace CodeScope.Presentation.Features.Archive
                 return;
             
             await _repository.DeleteAsync(SelectedProject.Id);
-            await _repository.SaveChangesAsync();
             
             Projects.Remove(SelectedProject);
         }
@@ -62,10 +61,9 @@ namespace CodeScope.Presentation.Features.Archive
             if(SelectedProject is null)
                 return;
 
-            SelectedProject.IsArchived = false;
+            await _repository.RestoreAsync(SelectedProject.Id);
             
-            Projects.Remove(SelectedProject);
-            await _repository.SaveChangesAsync();
+            Projects.Remove(SelectedProject);;
         }
     }
 }

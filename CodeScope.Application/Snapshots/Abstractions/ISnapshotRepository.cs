@@ -1,6 +1,6 @@
 ﻿using CodeScope.Domain.Projects;
 
-namespace CodeScope.Application.Projects.Abstractions
+namespace CodeScope.Application.Snapshots.Abstractions
 {
     public interface ISnapshotRepository
     {

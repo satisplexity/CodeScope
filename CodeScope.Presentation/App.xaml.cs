@@ -6,6 +6,7 @@ using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Framework.Navigation.Root;
 using CodeScope.Presentation.Features.ProjectWorkspace;
 using CodeScope.Presentation.Features.CreateProject;
+using CodeScope.Application.Snapshots.Abstractions;
 using CodeScope.Presentation.Features.ProjectsHub;
 using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Infrastructure.Persistence.Json;

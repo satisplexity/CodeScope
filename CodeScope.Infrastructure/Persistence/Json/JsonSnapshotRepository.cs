@@ -1,4 +1,4 @@
-﻿using CodeScope.Application.Projects.Abstractions;
+﻿using CodeScope.Application.Snapshots.Abstractions;
 using CodeScope.Domain.Projects;
 using System.Text.Json;
 

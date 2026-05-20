@@ -29,15 +29,15 @@ namespace CodeScope.Presentation.Features.CreateProject
         public CreateProjectViewModel(IRootNavigationService navigation, CreateProjectService createProjectService)
         {
             _createProjectService = createProjectService;
-            
+
             GoBackCommand = new(navigation.GoBack);
 
-            _steps = new ViewModelBase[]
-            {
+            _steps =
+            [
                 new GeneralInfoStepViewModel(_draft, GoToNextStep),
                 new AnalyzerSettingsStepViewModel(_draft, GoToNextStep, GoToPreviousStep),
                 new CustomizationStepViewModel(_draft, GoToPreviousStep, CreateProject)
-            };
+            ];
 
             CurrentStep = _steps[0];
         }

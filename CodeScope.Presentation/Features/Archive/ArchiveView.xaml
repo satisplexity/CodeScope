@@ -70,6 +70,32 @@
 
         </ListBox>
 
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Restore"
+                    Background="#222"
+                    Foreground="#C9C"
+                    Padding="10, 5"
+                    Grid.Column="1"
+                    Command="{Binding RestoreProjectCommand}"/>
+
+            <Button Content="Delete"
+                    Background="#222"
+                    Foreground="#E79"
+                    Grid.Column="2"
+                    Padding="10, 5"
+                    Command="{Binding DeleteProjectCommand}"/>
+
+        </Grid>
+        
     </Grid>
 
 </UserControl>

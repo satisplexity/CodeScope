@@ -7,7 +7,6 @@ using CodeScope.Presentation.Features.Settings;
 using CodeScope.Presentation.Features.Archive;
 using System.Collections.ObjectModel;
 using CodeScope.Domain.Projects;
-using System.Windows;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {
@@ -24,9 +23,9 @@ namespace CodeScope.Presentation.Features.ProjectsHub
         private readonly IProjectRepository _repository;
         private readonly IRootNavigationService _navigation;
 
-        private Project _selectedProject;
+        private Project? _selectedProject;
 
-        public Project SelectedProject
+        public Project? SelectedProject
         {
             get => _selectedProject;
             set => SetProperty(ref _selectedProject, value);
@@ -41,7 +40,7 @@ namespace CodeScope.Presentation.Features.ProjectsHub
 
             OpenSettingsCommand = new(navigation.NavigateTo<SettingsViewModel>);
 
-            ArchiveProjectCommand = new(() => MessageBox.Show("ARHIVE PROJECT"));
+            ArchiveProjectCommand = new(ArchiveProject);
 
             OpenCreateProjectCommand = new(navigation.NavigateTo<CreateProjectViewModel>);
 
@@ -57,6 +56,16 @@ namespace CodeScope.Presentation.Features.ProjectsHub
             foreach (Project project in projects)
                 if(!project.IsArchived)
                     Projects.Add(project);
+        }
+
+        public void ArchiveProject()
+        {
+            if (SelectedProject is null)
+                return;
+            
+            SelectedProject.IsArchived = true;
+
+            Projects.Remove(SelectedProject);
         }
 
         public async Task OpenProjectWorkspace() =>

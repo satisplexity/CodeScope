@@ -49,12 +49,15 @@ namespace CodeScope.Presentation.Framework.Navigation
             OnPropertyChanged(nameof(CanGoBack));
         }
 
-        public void GoBack()
+        public async Task GoBack()
         {
             if(!CanGoBack)
                 return;
 
             _store.CurrentViewModel = _history.Pop();
+
+            if (_store.CurrentViewModel is IAsyncInitializable asyncInitializable)
+                await asyncInitializable.InitializeAsync();
 
             OnPropertyChanged(nameof(CanGoBack));
         }

@@ -1,9 +1,11 @@
-﻿using CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep;
-using CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsStep;
+﻿using CodeScope.Presentation.Features.CreateProject.Steps.AnalyzerSettingsStep;
 using CodeScope.Presentation.Features.CreateProject.Steps.CustomizationStep;
-using CodeScope.Presentation.Framework.Foundation;
+using CodeScope.Presentation.Features.CreateProject.Steps.GeneralInfoStep;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
+using CodeScope.Presentation.Features.ProjectWorkspace;
+using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Presentation.Framework.Services;
+using CodeScope.Domain.Projects;
 
 namespace CodeScope.Presentation.Features.CreateProject
 {
@@ -26,8 +28,11 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         private readonly CreateProjectService _createProjectService;
 
+        private readonly IRootNavigationService _navigation;
+
         public CreateProjectViewModel(IRootNavigationService navigation, CreateProjectService createProjectService)
         {
+            _navigation = navigation;
             _createProjectService = createProjectService;
 
             GoBackCommand = new(navigation.GoBack);
@@ -50,9 +55,9 @@ namespace CodeScope.Presentation.Features.CreateProject
 
         public async Task CreateProject()
         {
-            await _createProjectService.ExecuteAsync(_draft);
+            Project project = await _createProjectService.ExecuteAsync(_draft);
 
-            // NAVIGATE TO WORKSPACE
+            await _navigation.NavigateTo<ProjectWorkspaceViewModel, Project>(project);
         }
     }
 }

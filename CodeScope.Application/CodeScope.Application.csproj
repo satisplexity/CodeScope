@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CodeScope.Domain\CodeScope.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Projects\Mappers\" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,11 @@
-﻿using CodeScope.Domain.Projects;
+﻿using CodeScope.Domain.Snapshots.Entities;
 
 namespace CodeScope.Application.Snapshots.Abstractions
 {
     public interface ISnapshotRepository
     {
-        Task<List<ProjectSnapshot>> GetByProjectIdAsync(Guid projectId);
+        Task<List<Snapshot>> GetByProjectIdAsync(Guid projectId);
 
-        Task SaveAsync(ProjectSnapshot snapshot);
+        Task SaveAsync(Snapshot snapshot);
     }
 }

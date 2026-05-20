@@ -6,7 +6,7 @@ using CodeScope.Application.Projects.Abstractions;
 using CodeScope.Presentation.Features.Settings;
 using CodeScope.Presentation.Features.Archive;
 using System.Collections.ObjectModel;
-using CodeScope.Domain.Projects;
+using CodeScope.Domain.Projects.Entities;
 
 namespace CodeScope.Presentation.Features.ProjectsHub
 {

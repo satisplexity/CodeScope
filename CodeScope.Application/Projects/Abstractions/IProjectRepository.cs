@@ -1,4 +1,4 @@
-﻿using CodeScope.Domain.Projects;
+﻿using CodeScope.Domain.Projects.Entities;
 
 namespace CodeScope.Application.Projects.Abstractions
 {

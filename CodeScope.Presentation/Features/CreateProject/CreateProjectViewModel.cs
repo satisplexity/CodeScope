@@ -5,7 +5,7 @@ using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Features.ProjectWorkspace;
 using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Presentation.Framework.Services;
-using CodeScope.Domain.Projects;
+using CodeScope.Domain.Projects.Entities;
 
 namespace CodeScope.Presentation.Features.CreateProject
 {

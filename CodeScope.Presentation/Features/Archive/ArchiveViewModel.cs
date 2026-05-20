@@ -2,7 +2,7 @@
 using CodeScope.Presentation.Framework.Foundation;
 using CodeScope.Application.Projects.Abstractions;
 using System.Collections.ObjectModel;
-using CodeScope.Domain.Projects;
+using CodeScope.Domain.Projects.Entities;
 
 namespace CodeScope.Presentation.Features.Archive
 {

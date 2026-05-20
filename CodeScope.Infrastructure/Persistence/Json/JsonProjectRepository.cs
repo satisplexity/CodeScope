@@ -1,5 +1,5 @@
 ﻿using CodeScope.Application.Projects.Abstractions;
-using CodeScope.Domain.Projects;
+using CodeScope.Domain.Projects.Entities;
 using System.Text.Json;
 
 namespace CodeScope.Infrastructure.Persistence.Json

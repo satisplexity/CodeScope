@@ -1,5 +1,5 @@
 ﻿using CodeScope.Application.Snapshots.Abstractions;
-using CodeScope.Domain.Projects;
+using CodeScope.Domain.Snapshots.Entities;
 using System.Text.Json;
 
 namespace CodeScope.Infrastructure.Persistence.Json
@@ -21,20 +21,20 @@ namespace CodeScope.Infrastructure.Persistence.Json
             Directory.CreateDirectory(_snapshotsDirectory);
         }
 
-        public async Task<List<ProjectSnapshot>> GetByProjectIdAsync(Guid projectId)
+        public async Task<List<Snapshot>> GetByProjectIdAsync(Guid projectId)
         {
             string path = GetSnapshotFilePath(projectId);
 
             if (!File.Exists(path))
-                return new List<ProjectSnapshot>();
+                return new List<Snapshot>();
 
             string json = await File.ReadAllTextAsync(path);
 
-            return JsonSerializer.Deserialize<List<ProjectSnapshot>>(json)
-                   ?? new List<ProjectSnapshot>();
+            return JsonSerializer.Deserialize<List<Snapshot>>(json)
+                   ?? new List<Snapshot>();
         }
 
-        public async Task SaveAsync(ProjectSnapshot snapshot)
+        public async Task SaveAsync(Snapshot snapshot)
         {
             var snapshots = await GetByProjectIdAsync(snapshot.ProjectId);
 

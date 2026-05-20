@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CodeScope.Presentation.Features.ProjectWorkspace">
 
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="/Features/ProjectWorkspace/ProjectWorkspaceViewModelTemplates.xaml"/>
+
+    </UserControl.Resources>
+    
     <Grid>
 
         <Grid.RowDefinitions>
@@ -32,6 +38,40 @@
                     Padding="10, 5"
                     Grid.Column="1"
                     Command="{Binding OpenProjectHubCommand}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Background="#333">
+
+                <RadioButton Content="Snapshots"
+                             Foreground="White"
+                             Margin="10, 5"
+                             Command="{Binding OpenSnapshotsCommand}"
+                             IsChecked="True"/>
+
+                <RadioButton Content="Analysis"
+                             Foreground="White"
+                             Margin="10, 5"
+                             Command="{Binding OpenAnalysisCommand}"/>
+
+                <RadioButton Content="Settings"
+                             Foreground="White"
+                             Margin="10, 5"
+                             Command="{Binding OpenProjectSettingsCommand}"/>
+
+            </StackPanel>
+
+            <ContentControl Grid.Column="1"
+                            Content="{Binding WorkspaceNavigation.CurrentViewModel}"/>
 
         </Grid>
         

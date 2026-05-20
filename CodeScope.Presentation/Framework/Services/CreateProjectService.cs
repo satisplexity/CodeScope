@@ -14,7 +14,7 @@ namespace CodeScope.Presentation.Framework.Services
             _repository = repository;
         }
 
-        public async Task ExecuteAsync(CreateProjectDraft draft)
+        public async Task<Project> ExecuteAsync(CreateProjectDraft draft)
         {
             Project project = new()
             {
@@ -34,6 +34,8 @@ namespace CodeScope.Presentation.Framework.Services
 
             await _repository.AddAsync(project);
             await _repository.SaveChangesAsync();
+
+            return project;
         }
     }
 }

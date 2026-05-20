@@ -1,17 +1,20 @@
-﻿using CodeScope.Presentation.Framework.Navigation.ProjectWorkspace;
+﻿using CodeScope.Presentation.Features.ProjectWorkspace.Features.ProjectSettings;
+using CodeScope.Presentation.Features.ProjectWorkspace.Features.ProjectAnalysis;
+using CodeScope.Presentation.Features.ProjectWorkspace.Features.Snapshots;
+using CodeScope.Presentation.Framework.Navigation.ProjectWorkspace;
 using CodeScope.Presentation.Framework.Navigation.Abstractions;
 using CodeScope.Presentation.Framework.Navigation.Root;
 using CodeScope.Presentation.Features.ProjectWorkspace;
 using CodeScope.Presentation.Features.CreateProject;
 using CodeScope.Presentation.Features.ProjectsHub;
+using CodeScope.Application.Projects.Abstractions;
+using CodeScope.Infrastructure.Persistence.Json;
+using CodeScope.Presentation.Framework.Services;
 using CodeScope.Presentation.Features.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using CodeScope.Presentation.Features.Archive;
 using CodeScope.Presentation.Features.Shell;
 using System.Windows;
-using CodeScope.Infrastructure.Persistence.Json;
-using CodeScope.Application.Projects.Abstractions;
-using CodeScope.Presentation.Framework.Services;
 
 namespace CodeScope.Presentation
 {
@@ -76,10 +79,10 @@ namespace CodeScope.Presentation
             services.AddTransient<CreateProjectViewModel>();
             services.AddTransient<ProjectWorkspaceViewModel>();
 
-            // CreateProject-level ViewModels
-
             // Workspace-level ViewModels
-            
+            services.AddTransient<SnapshotsViewModel>();
+            services.AddTransient<ProjectAnalysisViewModel>();
+            services.AddTransient<ProjectSettingsViewModel>();
         }
     }
 }

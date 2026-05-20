@@ -14,6 +14,6 @@ namespace CodeScope.Presentation.Framework.Navigation.Abstractions
 
         bool CanGoBack { get; }
 
-        void GoBack();
+        Task GoBack();
     }
 }

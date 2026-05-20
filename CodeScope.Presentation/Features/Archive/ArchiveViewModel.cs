@@ -8,7 +8,7 @@ namespace CodeScope.Presentation.Features.Archive
 {
     public sealed class ArchiveViewModel : ViewModelBase, IAsyncInitializable
     {
-        public RelayCommand GoBackCommand { get; }
+        public AsyncRelayCommand GoBackCommand { get; }
 
         public AsyncRelayCommand DeleteProjectCommand { get; }
 
